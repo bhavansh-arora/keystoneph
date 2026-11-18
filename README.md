@@ -5,7 +5,7 @@ A multi-page static site for Keystone Power Holdings, LLC, a solar developer, fi
 ## Pages
 | Page | File |
 | --- | --- |
-| Home: hero, live energy counter, savings estimator, sectors, process, projects, footprint map, founders, quotes, news | `index.html` |
+| Home: hero, client strip, what-we-do grid, sector tabs, savings estimator, process, projects + ledger, footprint map, founders, quotes, news | `index.html` |
 | Solutions: sectors, financing models, PPA vs. buying comparison, estimator, FAQ | `solutions.html` |
 | Utility-scale: utilities and landowners, land check tool, process, FAQ | `utility-scale.html` |
 | Projects: 19 projects (filter and sort), case studies, footprint map | `projects.html` |
@@ -42,4 +42,4 @@ python3 -m http.server 8080
 Then open http://localhost:8080.
 
 ## Credits
-Photography: Unsplash and Pexels (free commercial license). Fonts: Archivo and JetBrains Mono (SIL Open Font License), self-hosted.
+Photography: Unsplash and Pexels (free commercial license). Fonts: Bricolage Grotesque, Geist and Geist Mono (SIL Open Font License), self-hosted.
