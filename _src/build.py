@@ -20,7 +20,8 @@ import re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "_src"
-SITE_URL = "https://www.keystoneph.com"
+# Live address of the site. Change to "https://www.keystoneph.com" when it moves to Keystone's domain.
+SITE_URL = "https://keystoneph.codebunny.net"
 
 def svg(body, sw="1.7", fill="none"):
     return (f'<svg viewBox="0 0 24 24" fill="{fill}" stroke="currentColor" stroke-width="{sw}" '
@@ -99,6 +100,7 @@ def build():
         meta.setdefault("slug", page.name)
         meta["canonical"] = SITE_URL + "/" + ("" if page.name == "index.html" else page.name)
         meta.setdefault("og_image", "assets/img/og-image.jpg")
+        meta["site_url"] = SITE_URL
         meta.setdefault("htmlclass", "" if page.name == "index.html" else "no-preloader")
         html = render(layout, meta)
         html = html.replace("{{BODY}}", render(body, meta))
