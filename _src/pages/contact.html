@@ -1,0 +1,189 @@
+<!--meta {
+  "title": "Start a project | Free solar feasibility review | Keystone Power Holdings",
+  "description": "Tell us about your organization and site in four short steps. Your enquiry goes straight to the right Keystone regional office for a free, no-obligation feasibility review.",
+  "nav": "contact"
+} -->
+    <section class="phero">
+      <div class="phero__media"><img src="assets/img/wiring.webp" alt="" width="2000" height="1119" fetchpriority="high"></div>
+      <div class="phero__sun" aria-hidden="true"></div>
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb" data-hero-in><a href="index.html">Home</a><i></i><span>Start a project</span></nav>
+        <h1 class="d d-hero phero__title" aria-label="Start a project.">
+          <span class="line"><span>Start a</span></span>
+          <span class="line"><span><em>project.</em></span></span>
+        </h1>
+        <div class="phero__foot">
+          <p class="phero__lede" data-hero-in>Four short steps, about 90 seconds. Your enquiry goes straight to the right regional team, and you'll hear back within one business day with next steps for a free feasibility review.</p>
+          <div class="phero__facts" data-hero-in>
+            <div><b>90 sec</b><span>To complete</span></div>
+            <div><b>1 day</b><span>Reply time</span></div>
+            <div><b>$0</b><span>Feasibility review</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section night section--flush-top" aria-label="Project enquiry">
+      <div class="container">
+        <div class="wizard">
+          <aside class="wizard__rail">
+            <p class="eyebrow">Project enquiry</p>
+            <ol class="wizard__steps">
+              <li class="is-active"><span>01</span><b>Organization</b></li>
+              <li><span>02</span><b>Site</b></li>
+              <li><span>03</span><b>Scale &amp; timing</b></li>
+              <li><span>04</span><b>Contact</b></li>
+            </ol>
+            <div class="wizard__summary">
+              <p>Your project so far</p>
+              <ul data-w-summary></ul>
+            </div>
+          </aside>
+
+          <div class="wizard__main">
+            <div class="wizard__progress" aria-hidden="true"><i></i></div>
+            <form data-wizard novalidate>
+              <!-- step 1 -->
+              <div class="wstep is-active" data-auto>
+                <h2 class="wstep__q">Who are you?</h2>
+                <p class="wstep__hint">Choose the option that fits best. It helps us send your enquiry to a specialist.</p>
+                <div class="cards" data-req="sector" data-msg="Choose the option that best describes your organization.">
+                  <label class="ocheck"><input type="radio" name="sector" value="Municipality"><span>{{icon:building}}<b>Municipality</b><small>City, town, township, county</small></span></label>
+                  <label class="ocheck"><input type="radio" name="sector" value="Water / wastewater authority"><span>{{icon:drop}}<b>Water / wastewater</b><small>Treatment plants &amp; authorities</small></span></label>
+                  <label class="ocheck"><input type="radio" name="sector" value="School district / K-12"><span>{{icon:school}}<b>School district / K-12</b><small>Public &amp; private schools</small></span></label>
+                  <label class="ocheck"><input type="radio" name="sector" value="College / university"><span>{{icon:school}}<b>College / university</b><small>Campuses &amp; facilities</small></span></label>
+                  <label class="ocheck"><input type="radio" name="sector" value="Non-profit"><span>{{icon:heart}}<b>Non-profit</b><small>Community, faith, health</small></span></label>
+                  <label class="ocheck"><input type="radio" name="sector" value="Commercial / industrial"><span>{{icon:factory}}<b>Commercial / industrial</b><small>Manufacturing, retail, logistics</small></span></label>
+                  <label class="ocheck"><input type="radio" name="sector" value="Landowner (utility-scale)"><span>{{icon:land}}<b>Landowner</b><small>20+ acres for utility-scale</small></span></label>
+                  <label class="ocheck"><input type="radio" name="sector" value="Utility / co-op"><span>{{icon:tower}}<b>Utility / co-op</b><small>Custom facility &amp; offtake</small></span></label>
+                </div>
+              </div>
+
+              <!-- step 2 -->
+              <div class="wstep" data-auto>
+                <h2 class="wstep__q">Where could it go?</h2>
+                <p class="wstep__hint">Not sure yet? That's fine. Our team will assess every option on your property.</p>
+                <div class="cards" data-req="site" data-msg="Choose a site type, or pick “Not sure yet”.">
+                  <label class="ocheck"><input type="radio" name="site" value="Rooftop"><span>{{icon:roof}}<b>Rooftop</b><small>Flat or low-slope roofs</small></span></label>
+                  <label class="ocheck"><input type="radio" name="site" value="Ground-mount"><span>{{icon:land}}<b>Ground-mount</b><small>Unused land on site</small></span></label>
+                  <label class="ocheck"><input type="radio" name="site" value="Parking canopy"><span>{{icon:carport}}<b>Parking canopy</b><small>Shade + power</small></span></label>
+                  <label class="ocheck"><input type="radio" name="site" value="Open land (utility-scale)"><span>{{icon:grid}}<b>Open land</b><small>Large parcels, 20+ acres</small></span></label>
+                  <label class="ocheck"><input type="radio" name="site" value="Multiple sites"><span>{{icon:pin}}<b>Multiple sites</b><small>Portfolio of buildings</small></span></label>
+                  <label class="ocheck"><input type="radio" name="site" value="Not sure yet"><span>{{icon:search}}<b>Not sure yet</b><small>Help me decide</small></span></label>
+                </div>
+              </div>
+
+              <!-- step 3 -->
+              <div class="wstep">
+                <h2 class="wstep__q">Scale &amp; timing</h2>
+                <p class="wstep__hint">Rough numbers are perfect. We'll confirm everything with your utility bills later.</p>
+                <div class="form-grid">
+                  <div class="input" data-for-load>
+                    <label for="w-scale">Annual electricity spend</label>
+                    <select id="w-scale" name="scale" data-req="scale" data-msg="Choose your approximate annual electricity spend.">
+                      <option value="">Select a range</option>
+                      <option>&lt;$50k</option>
+                      <option>$50k–$150k</option>
+                      <option>$150k–$500k</option>
+                      <option>$500k–$1M</option>
+                      <option>$1M+</option>
+                      <option>Not sure</option>
+                    </select>
+                  </div>
+                  <div class="input" data-for-land hidden>
+                    <label for="w-acres">Land available</label>
+                    <select id="w-acres" name="acres" data-req="acres" data-msg="Choose roughly how much land is available.">
+                      <option value="">Select a range</option>
+                      <option>20–50 acres</option>
+                      <option>50–200 acres</option>
+                      <option>200–500 acres</option>
+                      <option>500+ acres</option>
+                      <option>Not sure</option>
+                    </select>
+                  </div>
+                  <div class="input">
+                    <label for="w-state">Project state</label>
+                    <select id="w-state" name="state" data-req="state" data-msg="Choose the state where the project would be.">
+                      <option value="">Select a state</option>
+{{> state-options}}                    </select>
+                  </div>
+                  <fieldset class="field span-2">
+                    <legend class="wlegend">When would you like to move?</legend>
+                    <div class="chips" data-req="timeline" data-msg="Let us know your timing.">
+                      <label class="chip"><input type="radio" name="timeline" value="Ready now"><span>Ready now</span></label>
+                      <label class="chip"><input type="radio" name="timeline" value="This budget cycle"><span>This budget cycle</span></label>
+                      <label class="chip"><input type="radio" name="timeline" value="6–12 months"><span>6–12 months</span></label>
+                      <label class="chip"><input type="radio" name="timeline" value="Just exploring"><span>Just exploring</span></label>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+
+              <!-- step 4 -->
+              <div class="wstep">
+                <h2 class="wstep__q">Where should we reply?</h2>
+                <p class="wstep__hint">A developer from your regional office will be in touch. No spam, no hand-offs.</p>
+                <div class="form-grid">
+                  <div class="input"><label for="w-name">Full name</label><input id="w-name" name="name" autocomplete="name" placeholder="Jane Smith" data-req="name" data-msg="Please add your name."></div>
+                  <div class="input"><label for="w-title">Job title</label><input id="w-title" name="title" autocomplete="organization-title" placeholder="Facilities Director"></div>
+                  <div class="input span-2"><label for="w-org">Organization</label><input id="w-org" name="org" autocomplete="organization" placeholder="City of Springfield" data-req="org" data-msg="Please add your organization."></div>
+                  <div class="input"><label for="w-email">Work email</label><input id="w-email" name="email" type="email" autocomplete="email" placeholder="jane@springfield.gov" data-req="email" data-msg="Please add a valid email address."></div>
+                  <div class="input"><label for="w-phone">Phone <span style="opacity:.6">(optional)</span></label><input id="w-phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 555-0123"></div>
+                  <div class="input span-2"><label for="w-notes">Anything else? <span style="opacity:.6">(optional)</span></label><textarea id="w-notes" name="notes" placeholder="Site address, roof age, board meeting dates, current utility…"></textarea></div>
+                </div>
+                <p class="consent">{{icon:shield}}<span>Your details are used only to respond to this enquiry. Keystone never shares or sells your information.</span></p>
+              </div>
+
+              <p class="wizard__err" role="alert"></p>
+              <div class="wizard__nav">
+                <button type="button" class="wizard__back" data-w-back disabled>{{icon:arrow-left}} Back</button>
+                <button type="button" class="btn btn--sun" data-w-next data-magnetic><span class="btn__label">Continue</span><span class="btn__icon">{{icon:arrow}}</span></button>
+              </div>
+            </form>
+
+            <div class="result" aria-live="polite">
+              <p class="result__badge"><i></i>Enquiry received</p>
+              <h3>Thanks, <span data-r-name>there</span>. <em>We're on it.</em></h3>
+              <dl class="result__grid">
+                <div><dt>Routed to</dt><dd data-r-office>Paoli, PA</dd></div>
+                <div><dt>Indicative system</dt><dd data-r-size>To be assessed</dd></div>
+                <div><dt>Expect a reply</dt><dd data-r-reply>within one business day</dd></div>
+              </dl>
+              <ol class="result__next">
+                <li><span>01</span><p><b>Intro call.</b> A Keystone developer confirms your goals, site and timing.</p></li>
+                <li><span>02</span><p><b>Send 12 months of bills.</b> PDFs or a utility data release are perfect.</p></li>
+                <li><span>03</span><p><b>Feasibility review.</b> System size, production, rate and savings, side by side with today's costs.</p></li>
+              </ol>
+              <div class="hero__actions">
+                <a class="btn btn--sun" href="#" data-r-book hidden><span class="btn__label">Book a 20-minute intro call</span><span class="btn__icon">{{icon:calendar}}</span></a>
+                <a class="btn btn--ghost" href="projects.html"><span class="btn__label">Explore our projects</span><span class="btn__icon">{{icon:arrow}}</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-side">
+          <div class="cside">{{icon:phone}}<div><b>Prefer to talk?</b><p>Call headquarters on <a href="tel:+14843010755">+1 484.301.0755</a></p></div></div>
+          <div class="cside">{{icon:file}}<div><b>Have bills handy?</b><p>12 months of utility bills lets us size your system accurately.</p></div></div>
+          <div class="cside">{{icon:pin}}<div><b>Three offices</b><p>Paoli PA &middot; St. Charles IL &middot; Richmond VA</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bone" aria-labelledby="offices-title">
+      <div class="container">
+        <div class="sec-head sec-head--split">
+          <div>
+            <p class="eyebrow">Offices</p>
+            <h2 class="d d-xl" id="offices-title" data-split>Visit or <em>call direct.</em></h2>
+          </div>
+          <p class="sec-head__side">Enquiries are routed automatically: Midwest to St. Charles, Mid-Atlantic and Southeast to Richmond, and everywhere else to our Paoli headquarters.</p>
+        </div>
+        <div class="offices">
+          <div class="ocard" data-reveal><span class="ocard__tag">Headquarters</span><span class="ocard__coords">40.0423&deg; N<br>75.4835&deg; W</span><h3>Paoli, PA</h3><p>12 Paoli Pike, Ste 5<br>Paoli, PA 19301</p><a href="tel:+14843010755">{{icon:phone}}+1 484.301.0755</a></div>
+          <div class="ocard" data-reveal><span class="ocard__tag">Midwest</span><span class="ocard__coords">41.9142&deg; N<br>88.3087&deg; W</span><h3>St. Charles, IL</h3><p>100 Illinois St, Ste 200<br>St. Charles, IL 60174</p><a href="tel:+16303381650">{{icon:phone}}+1 630.338.1650</a></div>
+          <div class="ocard" data-reveal><span class="ocard__tag">Mid-Atlantic</span><span class="ocard__coords">37.5160&deg; N<br>77.5540&deg; W</span><h3>Richmond, VA</h3><p>7400 Beaufont Springs Dr, Ste 300<br>Richmond, VA 23225</p><a href="tel:+18045212666">{{icon:phone}}+1 804.521.2666</a></div>
+        </div>
+      </div>
+    </section>

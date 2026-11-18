@@ -1,0 +1,55 @@
+<div class="estimator" data-estimator>
+        <div class="estimator__inputs">
+          <fieldset class="field">
+            <legend class="field__label"><span>01</span> Your organization</legend>
+            <div class="chips" role="radiogroup" aria-label="Organization type">
+              <label class="chip"><input type="radio" name="est-type" value="municipal" checked><span>{{icon:building}}Municipality</span></label>
+              <label class="chip"><input type="radio" name="est-type" value="water"><span>{{icon:drop}}Water / wastewater</span></label>
+              <label class="chip"><input type="radio" name="est-type" value="education"><span>{{icon:school}}School / university</span></label>
+              <label class="chip"><input type="radio" name="est-type" value="nonprofit"><span>{{icon:heart}}Non-profit</span></label>
+              <label class="chip"><input type="radio" name="est-type" value="commercial"><span>{{icon:factory}}Commercial / industrial</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label class="field__label" for="est-spend"><span>02</span> Annual electricity spend</label>
+            <output class="estimator__spend" for="est-spend" data-est-spend>$250,000</output>
+            <input class="range" id="est-spend" type="range" min="0" max="100" step="1" value="50" aria-describedby="est-spend-hint">
+            <div class="range__scale" id="est-spend-hint"><span>$25k</span><span>$250k</span><span>$5M+</span></div>
+          </div>
+
+          <fieldset class="field">
+            <legend class="field__label"><span>03</span> Where it could go</legend>
+            <div class="chips chips--sm" role="radiogroup" aria-label="Site type">
+              <label class="chip"><input type="radio" name="est-site" value="Rooftop" checked><span>{{icon:roof}}Rooftop</span></label>
+              <label class="chip"><input type="radio" name="est-site" value="Ground"><span>{{icon:land}}Ground / open land</span></label>
+              <label class="chip"><input type="radio" name="est-site" value="Carport"><span>{{icon:carport}}Parking canopy</span></label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="estimator__out" aria-live="polite">
+          <div class="estimator__head">
+            <p class="eyebrow">Estimated year-one savings</p>
+            <p class="estimator__big"><span data-est-low>$25,000</span><i>to</i><span data-est-high>$50,000</span></p>
+          </div>
+          <div class="estimator__chart">
+            <svg viewBox="0 0 400 140" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="estFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB21A" stop-opacity=".55"/><stop offset="1" stop-color="#FFB21A" stop-opacity="0"/></linearGradient>
+              </defs>
+              <path data-est-area fill="url(#estFill)" d=""/>
+              <path data-est-line fill="none" stroke="#FFC94A" stroke-width="2.5" vector-effect="non-scaling-stroke" d=""/>
+            </svg>
+            <div class="estimator__chart-label"><span>Year 1</span><span>Cumulative savings over 25 years</span><span>Year 25</span></div>
+          </div>
+          <dl class="estimator__stats">
+            <div><dt>25-year savings</dt><dd data-est-life>$1.3M</dd></div>
+            <div><dt>Indicative system</dt><dd data-est-size>620 kW</dd></div>
+            <div><dt>CO&#8322; avoided / yr</dt><dd data-est-co2>315 t</dd></div>
+            <div class="is-hot"><dt>Upfront cost</dt><dd>$0</dd></div>
+          </dl>
+          <a class="btn btn--sun btn--block" href="contact.html" data-est-cta data-magnetic><span class="btn__label">Get my real numbers</span><span class="btn__icon">{{icon:arrow-ur}}</span></a>
+          <p class="estimator__note">Illustrative only. Based on the year-one savings Keystone clients have publicly reported (12% to 20%+ on electricity costs) and utility rates rising 2.5% a year. A free feasibility review gives you real numbers for your site.</p>
+        </div>
+      </div>

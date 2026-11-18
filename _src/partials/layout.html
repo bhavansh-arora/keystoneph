@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en-US" class="{{page.htmlclass}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{page.title}}</title>
+  <meta name="description" content="{{page.description}}">
+  <link rel="canonical" href="{{page.canonical}}">
+  <meta name="theme-color" content="#05070A">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Keystone Power Holdings">
+  <meta property="og:title" content="{{page.title}}">
+  <meta property="og:description" content="{{page.description}}">
+  <meta property="og:url" content="{{page.canonical}}">
+  <meta property="og:image" content="https://www.keystoneph.com/{{page.og_image}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script>
+    (function(d){d.classList.add('js');try{if(sessionStorage.getItem('kph_seen'))d.classList.add('no-preloader')}catch(e){}})(document.documentElement);
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Keystone Power Holdings, LLC",
+    "url": "https://www.keystoneph.com/",
+    "logo": "https://www.keystoneph.com/assets/img/favicon.svg",
+    "description": "Solar developer, financier and owner of medium to large scale solar facilities for municipalities, schools, non-profits, businesses and utilities across North America.",
+    "telephone": "+1-484-301-0755",
+    "address": { "@type": "PostalAddress", "streetAddress": "12 Paoli Pike, Ste 5", "addressLocality": "Paoli", "addressRegion": "PA", "postalCode": "19301", "addressCountry": "US" },
+    "founder": [
+      { "@type": "Person", "name": "William R. DePhillipo", "jobTitle": "Co-Founder" },
+      { "@type": "Person", "name": "Anthony C. Fotopoulos", "jobTitle": "Co-Founder", "sameAs": ["https://www.linkedin.com/in/anthonyfotopoulos/"] }
+    ],
+    "areaServed": "North America",
+    "slogan": "Medium to large scale solar energy experts."
+  }
+  </script>
+</head>
+<body data-page="{{page.nav}}">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><linearGradient id="kmg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFD447"/><stop offset=".55" stop-color="#FF9F1C"/><stop offset="1" stop-color="#FF5A1F"/></linearGradient></defs></svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader__mark">{{mark}}</div>
+    <div class="preloader__bar"><i></i></div>
+    <div class="preloader__meta"><span>Powering up</span><span class="preloader__count">000</span></div>
+  </div>
+
+  <div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+
+  {{> header}}
+
+  <main id="main">
+{{BODY}}
+  </main>
+
+  {{> footer}}
+
+  <div class="dock" aria-label="Quick actions">
+    <a class="dock__call" href="tel:+14843010755">{{icon:phone}}<span>Call</span></a>
+    <a class="dock__cta" href="contact.html">Start a project {{icon:arrow}}</a>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/motion.js" defer></script>
+</body>
+</html>

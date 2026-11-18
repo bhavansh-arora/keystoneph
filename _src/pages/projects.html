@@ -1,0 +1,153 @@
+<!--meta {
+  "title": "Projects | 19 solar projects, 23.9 MW across 7 states | Keystone Power Holdings",
+  "description": "Explore Keystone's featured solar portfolio: colleges, school districts, wastewater plants, non-profits, a national retailer and manufacturers across seven states, plus detailed case studies.",
+  "nav": "projects"
+} -->
+    <section class="phero">
+      <div class="phero__media"><img src="assets/img/topdown.webp" alt="" width="1800" height="1012" fetchpriority="high"></div>
+      <div class="phero__sun" aria-hidden="true"></div>
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb" data-hero-in><a href="index.html">Home</a><i></i><span>Projects</span></nav>
+        <h1 class="d d-hero phero__title" aria-label="Built. Running. Saving.">
+          <span class="line"><span>Built.</span></span>
+          <span class="line"><span>Running.</span></span>
+          <span class="line"><span><em>Saving.</em></span></span>
+        </h1>
+        <div class="phero__foot">
+          <p class="phero__lede" data-hero-in>From a 0.2 MW treatment plant array to a 3.9 MW private college system, every project here was developed for an organization that paid nothing upfront.</p>
+          <div class="phero__facts" data-hero-in>
+            <div><b>23.9 MW</b><span>Featured portfolio</span></div>
+            <div><b>19</b><span>Projects</span></div>
+            <div><b>7</b><span>States</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bone" data-projects aria-labelledby="pf-title">
+      <div class="container">
+        <div class="sec-head sec-head--split">
+          <div>
+            <p class="eyebrow">(01) Featured portfolio</p>
+            <h2 class="d d-xl" id="pf-title" data-split>Every project, <em>by the numbers.</em></h2>
+          </div>
+          <p class="sec-head__side">Filter by sector or sort by size. Named case studies, with results in our clients' own words, follow below.</p>
+        </div>
+
+        <div class="filters">
+          <div class="filters__chips" role="group" aria-label="Filter projects by sector">
+            <button type="button" class="fchip is-active" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="fchip" data-filter="education" aria-pressed="false">Education</button>
+            <button type="button" class="fchip" data-filter="municipal" aria-pressed="false">Municipal &amp; water</button>
+            <button type="button" class="fchip" data-filter="commercial" aria-pressed="false">Commercial</button>
+            <button type="button" class="fchip" data-filter="nonprofit" aria-pressed="false">Non-profit</button>
+          </div>
+          <label class="sort">Sort
+            <select data-sort>
+              <option value="size">Largest first</option>
+              <option value="small">Smallest first</option>
+              <option value="state">By state</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="pgrid" data-pgrid>
+            {{> ptiles}}
+        </div>
+        <p class="pgrid__sum" aria-live="polite"><span>Showing <b data-sum-n>19</b> projects</span><span><b data-sum-mw>23.9</b> MW</span><span><b data-sum-s>7</b> states</span></p>
+      </div>
+    </section>
+
+    <section class="section night" aria-labelledby="cs-title">
+      <div class="container">
+        <div class="sec-head sec-head--split">
+          <div>
+            <p class="eyebrow">(02) Case studies</p>
+            <h2 class="d d-xl" id="cs-title" data-split>The stories <em>behind the MW.</em></h2>
+          </div>
+          <p class="sec-head__side">Public results, in our clients' own words, as reported in Keystone's press announcements.</p>
+        </div>
+
+        <article class="study" id="crown" data-reveal>
+          <div class="study__media"><img src="assets/img/sky-array.webp" alt="Ground-mounted solar array" width="2000" height="1331" loading="lazy" data-parallax></div>
+          <div class="study__body">
+            <div class="case__tags"><span>Manufacturing</span><span>Spartanburg, SC</span><span>Operating lease</span></div>
+            <h3>Crown Holdings: largest leased array in South Carolina</h3>
+            <p>A ground-mounted system on industrial land at a packaging plant owned by Crown Holdings (NYSE: CCK). Keystone financed, developed and owns the system; Crown uses the power under an operating lease, with a Duke Energy rebate lowering capital costs.</p>
+            <dl class="study__stats">
+              <div><dt>System</dt><dd>924.6 kW DC</dd></div>
+              <div><dt>Modules</dt><dd>2,680</dd></div>
+              <div><dt>Output</dt><dd>~1,310 MWh/yr</dd></div>
+            </dl>
+            <blockquote>&ldquo;Offsetting one-third of our annual energy usage in our Spartanburg plant is an important achievement.&rdquo;<cite>Bob Harding, Plant Manager, Crown Holdings</cite></blockquote>
+            <p class="study__src"><a class="text-link" href="https://www.prnewswire.com/news-releases/keystone-power-holdings-solar-array-fully-operational-in-south-carolina-300659952.html" target="_blank" rel="noopener">Read the announcement {{icon:arrow-ur}}</a></p>
+          </div>
+        </article>
+
+        <article class="study study--flip" id="augustana" data-reveal>
+          <div class="study__media"><img src="assets/img/campus-dusk.webp" alt="Solar on a college campus at dusk" width="2000" height="1333" loading="lazy" data-parallax></div>
+          <div class="study__body">
+            <div class="case__tags"><span>Education</span><span>Illinois</span></div>
+            <h3>Augustana College &amp; Abingdon-Avon High School</h3>
+            <p>Two fully built Illinois education projects, within an hour's drive of each other, cutting one of the schools' largest operating expenses and adding resilience to the local grid.</p>
+            <dl class="study__stats">
+              <div><dt>Augustana</dt><dd>1.35 MW DC</dd></div>
+              <div><dt>Buildings</dt><dd>4</dd></div>
+              <div><dt>Abingdon-Avon HS</dt><dd>750 kW DC</dd></div>
+            </dl>
+            <blockquote>&ldquo;Our solar projects will allow education administrators to direct more funding to their students and teachers.&rdquo;<cite>William DePhillipo, Co-Founder, Keystone</cite></blockquote>
+            <p class="study__src"><a class="text-link" href="https://www.prnewswire.com/news-releases/keystone-power-holdings-focuses-approach-on-education-sector-in-illinois-301395249.html" target="_blank" rel="noopener">Read the announcement {{icon:arrow-ur}}</a></p>
+          </div>
+        </article>
+
+        <article class="study" id="georgetown" data-reveal>
+          <div class="study__media"><img src="assets/img/ground-clouds.webp" alt="Solar array on open municipal land" width="2000" height="1331" loading="lazy" data-parallax></div>
+          <div class="study__body">
+            <div class="case__tags"><span>Wastewater</span><span>Georgetown &amp; Abingdon, IL</span><span>PPA</span></div>
+            <h3>Two cities, two treatment plants, zero upfront</h3>
+            <p>Keystone developed, built and financed solar for the wastewater plants of Georgetown and Abingdon. Both cities buy the power under long-term PPAs at a discount to utility rates, worth hundreds of thousands of dollars over each agreement.</p>
+            <dl class="study__stats">
+              <div><dt>Georgetown</dt><dd>354 kW &middot; 12%+</dd></div>
+              <div><dt>Abingdon</dt><dd>208 kW &middot; 18%+</dd></div>
+              <div><dt>Upfront cost</dt><dd>$0</dd></div>
+            </dl>
+            <blockquote>&ldquo;The solar installation brings down our costs for wastewater processing.&rdquo;<cite>Mayor Darin Readnour, City of Georgetown</cite></blockquote>
+            <p class="study__src"><a class="text-link" href="https://www.prnewswire.com/news-releases/keystone-power-holdings-delivers-more-solar-projects-to-municipal-wastewater-sites-in-illinois-301428209.html" target="_blank" rel="noopener">Read the announcement {{icon:arrow-ur}}</a></p>
+          </div>
+        </article>
+
+        <article class="study study--flip" id="jcc" data-reveal>
+          <div class="study__media"><img src="assets/img/array-blue.webp" alt="Rows of solar panels" width="2000" height="1324" loading="lazy" data-parallax></div>
+          <div class="study__body">
+            <div class="case__tags"><span>Non-profit</span><span>Scotch Plains, NJ</span><span>PPA</span></div>
+            <h3>JCC of Central New Jersey</h3>
+            <p>Flexible, non-standard financing let this non-profit go solar with nothing upfront. The system produced more than 200,000 kWh in its first year, and the savings now fund the JCC's programs.</p>
+            <dl class="study__stats">
+              <div><dt>System</dt><dd>223.56 kW</dd></div>
+              <div><dt>Year one</dt><dd>200,000+ kWh</dd></div>
+              <div><dt>Savings</dt><dd>20%+ / yr</dd></div>
+            </dl>
+            <p class="study__src"><a class="text-link" href="https://www.prnewswire.com/news-releases/keystone-power-holdings-flexible-financing-enables-unique-organizations-to-go-solar-300842725.html" target="_blank" rel="noopener">Read the announcement {{icon:arrow-ur}}</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section bone-2 footprint">
+      <div class="container footprint__grid">
+        <div class="footprint__copy">
+          <p class="eyebrow">(03) Footprint</p>
+          <h2 class="d d-xl" data-split>Seven states <em>and growing.</em></h2>
+          <p class="lead">Hover or tap a state to see projects and capacity. Offices in Pennsylvania, Illinois and Virginia, with expansion into Maryland and Maine.</p>
+          <ul class="legend">
+            <li><i class="lg lg--project"></i>Featured projects</li>
+            <li><i class="lg lg--office"></i>Keystone office</li>
+            <li><i class="lg lg--growth"></i>Expansion market</li>
+          </ul>
+        </div>
+        {{> tilemap}}
+      </div>
+    </section>
+
+    {{> cta}}
