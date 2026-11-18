@@ -1,6 +1,6 @@
 /* ==========================================================================
    Keystone Power Holdings — interactions
-   Preloader, header, menu, cursor, magnetic buttons, live counter,
+   Preloader, header, menu, live counter,
    savings estimator, quote slider, tile map, project filters,
    project enquiry wizard and the utility-scale land check.
    ========================================================================== */
@@ -76,40 +76,6 @@
     toggle.addEventListener("click", function () { setMenu(!doc.classList.contains("menu-open")); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && doc.classList.contains("menu-open")) { setMenu(false); toggle.focus(); } });
     $$("a", menu).forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
-  }
-
-  /* ---------- cursor ---------- */
-  var cursor = $(".cursor");
-  if (cursor && finePointer && !reduce) {
-    var label = $(".cursor__label", cursor), cx = 0, cy = 0, tx = 0, ty = 0;
-    window.addEventListener("mousemove", function (e) { tx = e.clientX; ty = e.clientY; cursor.classList.add("is-on"); }, { passive: true });
-    document.addEventListener("mouseleave", function () { cursor.classList.remove("is-on"); });
-    (function loop() {
-      cx += (tx - cx) * .2; cy += (ty - cy) * .2;
-      cursor.style.transform = "translate3d(" + cx + "px," + cy + "px,0)";
-      requestAnimationFrame(loop);
-    })();
-    $$("[data-cursor]").forEach(function (el) {
-      el.addEventListener("mouseenter", function () { label.textContent = el.getAttribute("data-cursor"); cursor.classList.add("is-label"); });
-      el.addEventListener("mouseleave", function () { cursor.classList.remove("is-label"); });
-    });
-    $$("a, button, input, select, textarea, label").forEach(function (el) {
-      if (el.closest("[data-cursor]")) return;
-      el.addEventListener("mouseenter", function () { cursor.style.opacity = ".0"; });
-      el.addEventListener("mouseleave", function () { cursor.style.opacity = ""; });
-    });
-  }
-
-  /* ---------- magnetic buttons ---------- */
-  if (finePointer && !reduce) {
-    $$("[data-magnetic]").forEach(function (el) {
-      el.addEventListener("mousemove", function (e) {
-        var r = el.getBoundingClientRect();
-        var x = (e.clientX - r.left - r.width / 2) * .22, y = (e.clientY - r.top - r.height / 2) * .32;
-        el.style.transform = "translate(" + x + "px," + y + "px)";
-      });
-      el.addEventListener("mouseleave", function () { el.style.transform = ""; });
-    });
   }
 
   /* ---------- live kWh counter ----------
