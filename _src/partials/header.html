@@ -1,42 +1,62 @@
-<header class="site-header">
+<div class="topbar">
+    <div class="container topbar__inner">
+      <p><span class="pulse"></span>Now accepting projects for the next budget cycle &middot; <a href="contact.html">Book a free feasibility review {{icon:arrow}}</a></p>
+      <ul>
+        <li>Paoli, PA</li><li>St. Charles, IL</li><li>Richmond, VA</li>
+        <li><a href="tel:+14843010755">{{icon:phone}}484.301.0755</a></li>
+      </ul>
+    </div>
+  </div>
+  <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="index.html" aria-label="Keystone Power Holdings home">{{mark}}<span class="brand__word"><b>Keystone</b><small>Power Holdings</small></span></a>
       <nav class="nav" aria-label="Primary">
-        <a href="solutions.html" {{nav:solutions}}>Solutions</a>
+        <div class="nav__item nav__item--mega">
+          <a href="solutions.html" {{nav:solutions}} aria-haspopup="true">Solutions {{icon:arrow-down}}</a>
+          <div class="mega">
+            <div class="mega__grid">
+              <a class="mega__link" href="solutions.html#municipal"><span>{{icon:drop}}</span><b>Municipal &amp; water</b><small>Cities, towns and treatment plants</small></a>
+              <a class="mega__link" href="solutions.html#education"><span>{{icon:school}}</span><b>Schools &amp; universities</b><small>K-12 districts to campuses</small></a>
+              <a class="mega__link" href="solutions.html#commercial"><span>{{icon:factory}}</span><b>Commercial &amp; industrial</b><small>Manufacturing, retail, mining</small></a>
+              <a class="mega__link" href="solutions.html#nonprofit"><span>{{icon:heart}}</span><b>Non-profits</b><small>Flexible, non-standard financing</small></a>
+              <a class="mega__link" href="utility-scale.html"><span>{{icon:tower}}</span><b>Utilities &amp; landowners</b><small>Utility-scale, 30+ year terms</small></a>
+              <a class="mega__link" href="solutions.html#models"><span>{{icon:file}}</span><b>Financing models</b><small>PPA, lease, service agreement</small></a>
+            </div>
+            <a class="mega__card" href="index.html#estimate">
+              <img src="assets/img/sky-array.webp" alt="" width="2000" height="1331" loading="lazy">
+              <span><small>Savings estimator</small><b>See what solar could save you in 30 seconds</b></span>
+            </a>
+          </div>
+        </div>
         <a href="utility-scale.html" {{nav:utility}}>Utility-scale</a>
         <a href="projects.html" {{nav:projects}}>Projects</a>
         <a href="about.html" {{nav:about}}>About</a>
         <a href="news.html" {{nav:news}}>News</a>
       </nav>
       <div class="header-actions">
-        <a class="header-phone" href="tel:+14843010755">{{icon:phone}}<span>484.301.0755</span></a>
-        <a class="btn btn--sun btn--sm" href="contact.html" data-magnetic><span class="btn__label">Start a project</span><span class="btn__icon">{{icon:arrow-ur}}</span></a>
+        <a class="btn btn--forest btn--sm" href="contact.html"><span>Start a project</span><i class="btn__ic">{{icon:arrow-ur}}</i></a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu"><span class="menu-toggle__lines"><i></i><i></i></span></button>
       </div>
     </div>
   </header>
 
   <div class="menu" id="site-menu" inert>
-    <div class="menu__glow" aria-hidden="true"></div>
     <div class="container menu__inner">
       <ul class="menu__list">
-        <li><a href="index.html"><span>01</span><b>Home</b></a></li>
-        <li><a href="solutions.html"><span>02</span><b>Solutions</b></a></li>
-        <li><a href="utility-scale.html"><span>03</span><b>Utility-scale</b></a></li>
-        <li><a href="projects.html"><span>04</span><b>Projects</b></a></li>
-        <li><a href="about.html"><span>05</span><b>About</b></a></li>
-        <li><a href="news.html"><span>06</span><b>News</b></a></li>
-        <li><a href="contact.html"><span>07</span><b>Start a <em>project</em></b></a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="utility-scale.html">Utility-scale</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Start a project</a></li>
       </ul>
       <div class="menu__aside">
-        <div>
-          <p class="eyebrow">Talk to a developer</p>
-          <a class="menu__big" href="tel:+14843010755">+1 484.301.0755</a>
-        </div>
+        <a class="menu__phone" href="tel:+14843010755">{{icon:phone}}+1 484.301.0755</a>
         <div class="menu__offices">
           <p><b>Paoli, PA</b>Headquarters</p>
-          <p><b>St. Charles, IL</b>Midwest office</p>
-          <p><b>Richmond, VA</b>Mid-Atlantic office</p>
+          <p><b>St. Charles, IL</b>Midwest</p>
+          <p><b>Richmond, VA</b>Mid-Atlantic</p>
         </div>
       </div>
     </div>

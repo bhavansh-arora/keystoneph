@@ -3,32 +3,27 @@
   "description": "Tell us about your organization and site in four short steps. Your enquiry goes straight to the right Keystone regional office for a free, no-obligation feasibility review.",
   "nav": "contact"
 } -->
-    <section class="phero">
-      <div class="phero__media"><img src="assets/img/wiring.webp" alt="" width="2000" height="1119" fetchpriority="high"></div>
-      <div class="phero__sun" aria-hidden="true"></div>
-      <div class="hero__grid" aria-hidden="true"></div>
-      <div class="container">
-        <nav class="crumbs" aria-label="Breadcrumb" data-hero-in><a href="index.html">Home</a><i></i><span>Start a project</span></nav>
-        <h1 class="d d-hero phero__title" aria-label="Start a project.">
-          <span class="line"><span>Start a</span></span>
-          <span class="line"><span><em>project.</em></span></span>
-        </h1>
-        <div class="phero__foot">
-          <p class="phero__lede" data-hero-in>Four short steps, about 90 seconds. Your enquiry goes straight to the right regional team, and you'll hear back within one business day with next steps for a free feasibility review.</p>
-          <div class="phero__facts" data-hero-in>
-            <div><b>90 sec</b><span>To complete</span></div>
-            <div><b>1 day</b><span>Reply time</span></div>
-            <div><b>$0</b><span>Feasibility review</span></div>
-          </div>
+    <section class="ph ph--compact">
+      <div class="hero__grid-bg" aria-hidden="true"></div>
+      <div class="container ph__layout">
+        <div class="ph__copy">
+          <nav class="crumbs" aria-label="Breadcrumb" data-hero-in><a href="index.html">Home</a>{{icon:arrow}}<span>Start a project</span></nav>
+          <h1 class="h-page" data-hero-in>Start a <span class="hl">project.</span></h1>
+          <p class="ph__lede" data-hero-in>Four short steps, about 90 seconds. Your enquiry goes straight to the right regional team, and you'll hear back within one business day with next steps for a free feasibility review.</p>
         </div>
+        <dl class="ph__facts" data-hero-in>
+          <div><dt>90 sec</dt><dd>To complete</dd></div>
+          <div><dt>1 day</dt><dd>Reply time</dd></div>
+          <div><dt>$0</dt><dd>Feasibility review</dd></div>
+        </dl>
       </div>
     </section>
 
-    <section class="section night section--flush-top" aria-label="Project enquiry">
+    <section class="sec cream sec--flush-top" aria-label="Project enquiry">
       <div class="container">
         <div class="wizard">
           <aside class="wizard__rail">
-            <p class="eyebrow">Project enquiry</p>
+            <p class="tag tag--dark"><i></i>Project enquiry</p>
             <ol class="wizard__steps">
               <li class="is-active"><span>01</span><b>Organization</b></li>
               <li><span>02</span><b>Site</b></li>
@@ -138,7 +133,7 @@
               <p class="wizard__err" role="alert"></p>
               <div class="wizard__nav">
                 <button type="button" class="wizard__back" data-w-back disabled>{{icon:arrow-left}} Back</button>
-                <button type="button" class="btn btn--sun" data-w-next data-magnetic><span class="btn__label">Continue</span><span class="btn__icon">{{icon:arrow}}</span></button>
+                <button type="button" class="btn btn--forest" data-w-next><span class="btn__label">Continue</span><i class="btn__ic">{{icon:arrow}}</i></button>
               </div>
             </form>
 
@@ -155,9 +150,9 @@
                 <li><span>02</span><p><b>Send 12 months of bills.</b> PDFs or a utility data release are perfect.</p></li>
                 <li><span>03</span><p><b>Feasibility review.</b> System size, production, rate and savings, side by side with today's costs.</p></li>
               </ol>
-              <div class="hero__actions">
-                <a class="btn btn--sun" href="#" data-r-book hidden><span class="btn__label">Book a 20-minute intro call</span><span class="btn__icon">{{icon:calendar}}</span></a>
-                <a class="btn btn--ghost" href="projects.html"><span class="btn__label">Explore our projects</span><span class="btn__icon">{{icon:arrow}}</span></a>
+              <div class="btn-row">
+                <a class="btn btn--forest" href="#" data-r-book hidden><span>Book a 20-minute intro call</span><i class="btn__ic">{{icon:calendar}}</i></a>
+                <a class="btn btn--line" href="projects.html"><span>Explore our projects</span><i class="btn__ic">{{icon:arrow}}</i></a>
               </div>
             </div>
           </div>
@@ -171,19 +166,15 @@
       </div>
     </section>
 
-    <section class="section bone" aria-labelledby="offices-title">
+    <section class="sec cream-2" aria-labelledby="offices-title">
       <div class="container">
-        <div class="sec-head sec-head--split">
+        <div class="head">
           <div>
-            <p class="eyebrow">Offices</p>
-            <h2 class="d d-xl" id="offices-title" data-split>Visit or <em>call direct.</em></h2>
+            <p class="tag"><i></i>Offices</p>
+            <h2 class="h2" id="offices-title" data-split>Visit or <span class="hl">call direct.</span></h2>
           </div>
-          <p class="sec-head__side">Enquiries are routed automatically: Midwest to St. Charles, Mid-Atlantic and Southeast to Richmond, and everywhere else to our Paoli headquarters.</p>
+          <p class="head__side">Enquiries are routed automatically: Midwest to St. Charles, Mid-Atlantic and Southeast to Richmond, and everywhere else to our Paoli headquarters.</p>
         </div>
-        <div class="offices">
-          <div class="ocard" data-reveal><span class="ocard__tag">Headquarters</span><span class="ocard__coords">40.0423&deg; N<br>75.4835&deg; W</span><h3>Paoli, PA</h3><p>12 Paoli Pike, Ste 5<br>Paoli, PA 19301</p><a href="tel:+14843010755">{{icon:phone}}+1 484.301.0755</a></div>
-          <div class="ocard" data-reveal><span class="ocard__tag">Midwest</span><span class="ocard__coords">41.9142&deg; N<br>88.3087&deg; W</span><h3>St. Charles, IL</h3><p>100 Illinois St, Ste 200<br>St. Charles, IL 60174</p><a href="tel:+16303381650">{{icon:phone}}+1 630.338.1650</a></div>
-          <div class="ocard" data-reveal><span class="ocard__tag">Mid-Atlantic</span><span class="ocard__coords">37.5160&deg; N<br>77.5540&deg; W</span><h3>Richmond, VA</h3><p>7400 Beaufont Springs Dr, Ste 300<br>Richmond, VA 23225</p><a href="tel:+18045212666">{{icon:phone}}+1 804.521.2666</a></div>
-        </div>
+        {{> offices}}
       </div>
     </section>

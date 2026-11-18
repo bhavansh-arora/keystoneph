@@ -68,8 +68,8 @@ ICONS = {
 
 MARK = ('<svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">'
         '<path d="M6 6h36l-8 36H14z" fill="url(#kmg)"/>'
-        '<path d="M24 14.5a7.5 7.5 0 0 1 7.5 7.5h-15a7.5 7.5 0 0 1 7.5-7.5z" fill="#131513"/>'
-        '<path d="M13.2 26h21.6M15 31h18M16.8 36h14.4" stroke="#131513" stroke-width="2" stroke-linecap="round"/>'
+        '<path d="M24 14.5a7.5 7.5 0 0 1 7.5 7.5h-15a7.5 7.5 0 0 1 7.5-7.5z" fill="#0F2B24"/>'
+        '<path d="M13.2 26h21.6M15 31h18M16.8 36h14.4" stroke="#0F2B24" stroke-width="2" stroke-linecap="round"/>'
         '</svg>')
 
 

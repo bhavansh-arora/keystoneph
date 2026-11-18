@@ -1,7 +1,7 @@
 /* ==========================================================================
    Keystone Power Holdings — interactions
    Preloader, header, menu, live counter,
-   savings estimator, quote slider, tile map, project filters,
+   savings estimator, sector tabs, tile map, project filters,
    project enquiry wizard and the utility-scale land check.
    ========================================================================== */
 (function () {
@@ -116,21 +116,27 @@
     var out = {
       spend: $("[data-est-spend]", root), low: $("[data-est-low]", root), high: $("[data-est-high]", root),
       life: $("[data-est-life]", root), size: $("[data-est-size]", root), co2: $("[data-est-co2]", root),
-      area: $("[data-est-area]", root), line: $("[data-est-line]", root), cta: $("[data-est-cta]", root)
+      bars: $("[data-est-bars]", root), cta: $("[data-est-cta]", root)
     };
-    var shown = { low: 0, high: 0, life: 0, h: 0 }, raf;
-    var minLife = Math.log10(25000 * .1 * ESC), maxLife = Math.log10(5000000 * .21 * ESC);
+    var shown = { low: 0, high: 0, life: 0, pct: 0, g: 0 }, raf;
 
-    function chartPath(h) {
-      var pts = [], c = 0, total = 0;
-      for (var t = 0; t < 25; t++) total += Math.pow(1.025, t);
-      for (var t2 = 0; t2 < 25; t2++) {
-        c += Math.pow(1.025, t2);
-        var x = t2 / 24 * 400, y = 136 - (c / total) * h;
-        pts.push([x, y]);
+    /* 25-year bar chart: utility-only cost vs. cost with Keystone */
+    var NS = "http://www.w3.org/2000/svg", uBars = [], kBars = [];
+    if (out.bars) {
+      for (var y = 0; y < 25; y++) {
+        var u = document.createElementNS(NS, "rect"), k = document.createElementNS(NS, "rect");
+        u.setAttribute("x", y * 20 + 2); u.setAttribute("width", 16); u.setAttribute("rx", 3); u.setAttribute("fill", "rgba(244,239,228,.22)");
+        k.setAttribute("x", y * 20 + 5); k.setAttribute("width", 10); k.setAttribute("rx", 3); k.setAttribute("fill", "#F4B63F");
+        out.bars.appendChild(u); out.bars.appendChild(k); uBars.push(u); kBars.push(k);
       }
-      var d = "M" + pts.map(function (p) { return p[0].toFixed(1) + " " + p[1].toFixed(1); }).join(" L");
-      return { line: d, area: d + " L400 140 L0 140 Z" };
+    }
+    function drawBars(pct, g) {
+      var max = Math.pow(1.025, 24);
+      for (var t = 0; t < 25; t++) {
+        var uh = Math.pow(1.025, t) / max * 150 * g, kh = uh * (1 - pct);
+        uBars[t].setAttribute("y", 160 - uh); uBars[t].setAttribute("height", Math.max(0, uh));
+        kBars[t].setAttribute("y", 160 - kh); kBars[t].setAttribute("height", Math.max(0, kh));
+      }
     }
 
     function calc() {
@@ -147,22 +153,20 @@
       out.size.textContent = kw >= 1000 ? (kw / 1000).toFixed(1) + " MW" : Math.round(kw / 10) * 10 + " kW";
       out.co2.textContent = fmt(kwh * 0.00037) + " t";
       if (out.cta) out.cta.href = "contact.html?sector=" + type + "&spend=" + spend + "&site=" + site;
-      var target = { low: low, high: high, life: life, h: 26 + 94 * Math.max(0, (Math.log10(life) - minLife) / (maxLife - minLife)) };
-      animate(target);
+      animate({ low: low, high: high, life: life, pct: (sec.low + sec.high) / 2 * st.k, g: 1 });
     }
 
     function animate(target) {
       cancelAnimationFrame(raf);
-      var from = { low: shown.low, high: shown.high, life: shown.life, h: shown.h }, t0 = performance.now(), d = reduce ? 1 : 600;
+      var from = {}, t0 = performance.now(), d = reduce ? 1 : (shown.g < 1 ? 1200 : 600);
+      Object.keys(target).forEach(function (k) { from[k] = shown[k]; });
       (function step(now) {
         var p = Math.min(1, (now - t0) / d), e = 1 - Math.pow(1 - p, 3);
         Object.keys(target).forEach(function (k) { shown[k] = from[k] + (target[k] - from[k]) * e; });
         out.low.textContent = money(shown.low);
         out.high.textContent = money(shown.high);
         out.life.textContent = money(shown.life);
-        var path = chartPath(shown.h);
-        out.line.setAttribute("d", path.line);
-        out.area.setAttribute("d", path.area);
+        if (out.bars) drawBars(shown.pct, shown.g);
         if (p < 1) raf = requestAnimationFrame(step);
       })(t0);
     }
@@ -170,6 +174,27 @@
     root.addEventListener("input", calc);
     root.addEventListener("change", calc);
     calc();
+  });
+
+  /* ---------- sector tabs ---------- */
+  $$("[data-tabs]").forEach(function (root) {
+    var tabs = $$("[role=tab]", root), panels = $$("[role=tabpanel]", root);
+    function select(i, focus) {
+      tabs.forEach(function (t, k) {
+        var on = k === i;
+        t.classList.toggle("is-active", on); t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1;
+        panels[k].hidden = !on; panels[k].classList.toggle("is-active", on);
+      });
+      if (focus) tabs[i].focus();
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener("click", function () { select(i); });
+      t.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+          e.preventDefault(); select((i + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length, true);
+        }
+      });
+    });
   });
 
   /* ---------- quote slider ---------- */

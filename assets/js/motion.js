@@ -7,6 +7,7 @@
   "use strict";
   var doc = document.documentElement;
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var $ = function (s, c) { return (c || document).querySelector(s); };
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (reduce || !window.gsap || !window.ScrollTrigger) {
@@ -84,32 +85,23 @@
   }
 
   function init() {
-    /* hero intro (home) */
-    var hero = document.querySelector("[data-hero]");
-    if (hero) {
-      var tl = gsap.timeline({ defaults: { ease: "expo.out" } });
-      tl.fromTo(hero.querySelector(".hero__media img"), { scale: 1.3 }, { scale: 1.12, duration: 2.4, ease: "power3.out" }, 0)
-        .to(hero.querySelectorAll(".hero__title .line > span"), { y: 0, duration: 1.4, stagger: .1 }, .1)
-        .to(hero.querySelectorAll("[data-hero-in]"), { opacity: 1, y: 0, duration: 1.2, stagger: .1 }, .5)
-        .fromTo(hero.querySelector(".hero__sun"), { opacity: 0, scale: .7 }, { opacity: 1, scale: 1, duration: 2.2, ease: "power2.out" }, 0);
+    /* page intro: copy rises, arch image unveils from the bottom */
+    var intro = $$("[data-hero-in]"), heroImg = $$("[data-hero-img]");
+    var itl = gsap.timeline({ defaults: { ease: "expo.out" } });
+    if (heroImg.length) itl.to(heroImg, { clipPath: "inset(0% 0 0 0 round 999px 999px 28px 28px)", duration: 1.6, ease: "expo.inOut" }, 0);
+    if (intro.length) itl.to(intro, { opacity: 1, y: 0, duration: 1.1, stagger: .08 }, .15);
+    itl.add(function () { $$(".hero .hl, .ph .hl").forEach(function (h) { h.classList.add("is-on"); }); }, .5);
+    itl.fromTo(".ring", { scale: .6, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.2, ease: "back.out(1.6)" }, .7);
+    itl.fromTo(".hero [data-float], .ph [data-float]", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, stagger: .15, clearProps: "transform" }, .8);
 
-      mm.add("(min-width: 641px)", function () {
-        gsap.to(hero.querySelector(".hero__media img"), { yPercent: 14, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true } });
-        gsap.to(hero.querySelector(".hero__title"), { yPercent: -18, opacity: .2, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true } });
-        gsap.to(hero.querySelector(".hero__sun"), { yPercent: 30, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true } });
-      });
-    }
-
-    /* inner page hero */
-    var phero = document.querySelector(".phero");
-    if (phero) {
-      var pt = gsap.timeline({ defaults: { ease: "expo.out" } });
-      var pimg = phero.querySelector(".phero__media img");
-      if (pimg) pt.fromTo(pimg, { scale: 1.25 }, { scale: 1.08, duration: 2.2, ease: "power3.out" }, 0);
-      pt.to(phero.querySelectorAll(".phero__title .line > span"), { y: 0, duration: 1.3, stagger: .09 }, .05)
-        .to(phero.querySelectorAll("[data-hero-in]"), { opacity: 1, y: 0, duration: 1.1, stagger: .08 }, .35);
-      if (pimg) gsap.to(pimg, { yPercent: 12, ease: "none", scrollTrigger: { trigger: phero, start: "top top", end: "bottom top", scrub: true } });
-    }
+    /* highlight markers, bar fills */
+    $$(".hl").forEach(function (h) {
+      if (h.closest(".hero, .ph")) return;
+      ST.create({ trigger: h, start: "top 85%", once: true, onEnter: function () { h.classList.add("is-on"); } });
+    });
+    $$(".bars, .ledger, .reach__list").forEach(function (el) {
+      ST.create({ trigger: el, start: "top 85%", once: true, onEnter: function () { el.classList.add("is-on"); } });
+    });
 
     /* split headlines */
     $$("[data-split]").forEach(function (el) {
@@ -145,48 +137,6 @@
       var wrap = img.closest("[data-parallax-wrap]") || img.parentNode;
       gsap.fromTo(img, { yPercent: -6 }, { yPercent: 6, ease: "none", scrollTrigger: { trigger: wrap, start: "top bottom", end: "bottom top", scrub: true } });
     });
-
-    /* banner clip reveal */
-    $$(".banner").forEach(function (b) {
-      gsap.fromTo(b, { clipPath: "inset(12% 8% 0% 8% round 32px)" }, { clipPath: "inset(0% 0% 0% 0% round 32px)", ease: "none", scrollTrigger: { trigger: b, start: "top 95%", end: "top 35%", scrub: true } });
-    });
-
-    /* horizontal sectors */
-    mm.add("(min-width: 641px)", function () {
-      var sec = document.querySelector("[data-hscroll]");
-      if (!sec) return;
-      var track = sec.querySelector("[data-hscroll-track]"), bar = sec.querySelector("[data-hscroll-bar]");
-      var dist = function () { return Math.max(0, track.scrollWidth - window.innerWidth); };
-      var tw = gsap.to(track, {
-        x: function () { return -dist(); }, ease: "none",
-        scrollTrigger: {
-          trigger: sec, start: "top top", end: function () { return "+=" + dist(); },
-          pin: true, scrub: .6, invalidateOnRefresh: true, anticipatePin: 1,
-          onUpdate: function (self) { if (bar) bar.style.transform = "scaleX(" + self.progress + ")"; }
-        }
-      });
-      return function () { tw.kill(); };
-    });
-
-    /* process meter */
-    var proc = document.querySelector("[data-process]");
-    if (proc) {
-      var pb = proc.querySelector("[data-process-bar]");
-      if (pb) gsap.to(pb, { scaleX: 1, ease: "none", scrollTrigger: { trigger: proc.querySelector(".steps"), start: "top 70%", end: "bottom 60%", scrub: true } });
-    }
-
-    /* timeline fill */
-    $$(".timeline__fill").forEach(function (f) {
-      gsap.to(f, { scaleX: 1, ease: "none", scrollTrigger: { trigger: f.parentNode, start: "top 80%", end: "bottom 50%", scrub: true } });
-    });
-
-    /* footer word */
-    var fw = document.querySelector(".footer__word");
-    if (fw) gsap.fromTo(fw, { yPercent: 40, opacity: 0 }, { yPercent: 0, opacity: 1, ease: "none", scrollTrigger: { trigger: fw, start: "top bottom", end: "bottom 85%", scrub: true } });
-
-    /* CTA title */
-    var ct = document.querySelector(".cta__rays");
-    if (ct) gsap.fromTo(ct, { scale: .8 }, { scale: 1.1, ease: "none", scrollTrigger: { trigger: ".cta", start: "top bottom", end: "bottom top", scrub: true } });
 
     window.addEventListener("load", function () { ST.refresh(); });
   }

@@ -1,55 +1,49 @@
-<div class="estimator" data-estimator>
-        <div class="estimator__inputs">
+<div class="calc" data-estimator>
+        <div class="calc__in">
           <fieldset class="field">
-            <legend class="field__label"><span>01</span> Your organization</legend>
-            <div class="chips" role="radiogroup" aria-label="Organization type">
+            <legend class="field__label"><b>01</b> Your organization</legend>
+            <div class="chips-in" role="radiogroup" aria-label="Organization type">
               <label class="chip"><input type="radio" name="est-type" value="municipal" checked><span>{{icon:building}}Municipality</span></label>
               <label class="chip"><input type="radio" name="est-type" value="water"><span>{{icon:drop}}Water / wastewater</span></label>
               <label class="chip"><input type="radio" name="est-type" value="education"><span>{{icon:school}}School / university</span></label>
               <label class="chip"><input type="radio" name="est-type" value="nonprofit"><span>{{icon:heart}}Non-profit</span></label>
-              <label class="chip"><input type="radio" name="est-type" value="commercial"><span>{{icon:factory}}Commercial / industrial</span></label>
+              <label class="chip"><input type="radio" name="est-type" value="commercial"><span>{{icon:factory}}Commercial</span></label>
             </div>
           </fieldset>
-
           <div class="field">
-            <label class="field__label" for="est-spend"><span>02</span> Annual electricity spend</label>
-            <output class="estimator__spend" for="est-spend" data-est-spend>$250,000</output>
-            <input class="range" id="est-spend" type="range" min="0" max="100" step="1" value="50" aria-describedby="est-spend-hint">
-            <div class="range__scale" id="est-spend-hint"><span>$25k</span><span>$250k</span><span>$5M+</span></div>
+            <label class="field__label" for="est-spend"><b>02</b> Annual electricity spend</label>
+            <output class="calc__spend" for="est-spend" data-est-spend>$250,000</output>
+            <input class="range" id="est-spend" type="range" min="0" max="100" step="1" value="50">
+            <div class="range__scale"><span>$25k</span><span>$250k</span><span>$5M+</span></div>
           </div>
-
           <fieldset class="field">
-            <legend class="field__label"><span>03</span> Where it could go</legend>
-            <div class="chips chips--sm" role="radiogroup" aria-label="Site type">
+            <legend class="field__label"><b>03</b> Where it could go</legend>
+            <div class="chips-in" role="radiogroup" aria-label="Site type">
               <label class="chip"><input type="radio" name="est-site" value="Rooftop" checked><span>{{icon:roof}}Rooftop</span></label>
-              <label class="chip"><input type="radio" name="est-site" value="Ground"><span>{{icon:land}}Ground / open land</span></label>
+              <label class="chip"><input type="radio" name="est-site" value="Ground"><span>{{icon:land}}Ground / land</span></label>
               <label class="chip"><input type="radio" name="est-site" value="Carport"><span>{{icon:carport}}Parking canopy</span></label>
             </div>
           </fieldset>
+          <p class="calc__note">{{icon:shield}}<span>Illustrative only. Based on the year-one savings Keystone clients have publicly reported (12% to 20%+) and utility rates rising 2.5% a year.</span></p>
         </div>
 
-        <div class="estimator__out" aria-live="polite">
-          <div class="estimator__head">
-            <p class="eyebrow">Estimated year-one savings</p>
-            <p class="estimator__big"><span data-est-low>$25,000</span><i>to</i><span data-est-high>$50,000</span></p>
+        <div class="calc__out" aria-live="polite">
+          <div class="calc__top">
+            <div>
+              <p class="calc__k">Estimated year-one savings</p>
+              <p class="calc__big"><span data-est-low>$30k</span><i>–</i><span data-est-high>$45k</span></p>
+            </div>
+            <p class="calc__zero"><b>$0</b>upfront</p>
           </div>
-          <div class="estimator__chart">
-            <svg viewBox="0 0 400 140" preserveAspectRatio="none" aria-hidden="true">
-              <defs>
-                <linearGradient id="estFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C98A3A" stop-opacity=".28"/><stop offset="1" stop-color="#C98A3A" stop-opacity="0"/></linearGradient>
-              </defs>
-              <path data-est-area fill="url(#estFill)" d=""/>
-              <path data-est-line fill="none" stroke="#DDAA66" stroke-width="1.5" vector-effect="non-scaling-stroke" d=""/>
-            </svg>
-            <div class="estimator__chart-label"><span>Year 1</span><span>Cumulative savings over 25 years</span><span>Year 25</span></div>
+          <div class="calc__chart">
+            <div class="calc__legend"><span><i class="lg-u"></i>Utility only</span><span><i class="lg-k"></i>With Keystone</span><span class="calc__yrs">25-year view</span></div>
+            <svg viewBox="0 0 500 160" preserveAspectRatio="none" data-est-bars aria-hidden="true"></svg>
           </div>
-          <dl class="estimator__stats">
-            <div><dt>25-year savings</dt><dd data-est-life>$1.3M</dd></div>
+          <dl class="calc__stats">
+            <div><dt>25-year savings</dt><dd data-est-life>$1.28M</dd></div>
             <div><dt>Indicative system</dt><dd data-est-size>620 kW</dd></div>
-            <div><dt>CO&#8322; avoided / yr</dt><dd data-est-co2>315 t</dd></div>
-            <div class="is-hot"><dt>Upfront cost</dt><dd>$0</dd></div>
+            <div><dt>CO&#8322; avoided / yr</dt><dd data-est-co2>308 t</dd></div>
           </dl>
-          <a class="btn btn--sun btn--block" href="contact.html" data-est-cta data-magnetic><span class="btn__label">Get my real numbers</span><span class="btn__icon">{{icon:arrow-ur}}</span></a>
-          <p class="estimator__note">Illustrative only. Based on the year-one savings Keystone clients have publicly reported (12% to 20%+ on electricity costs) and utility rates rising 2.5% a year. A free feasibility review gives you real numbers for your site.</p>
+          <a class="btn btn--sun btn--wide" href="contact.html" data-est-cta><span>Get my real numbers</span><i class="btn__ic">{{icon:arrow-ur}}</i></a>
         </div>
       </div>
