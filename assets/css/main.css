@@ -292,7 +292,6 @@ html.menu-open { overflow: hidden; }
 .hero__dots svg { width: 16px; height: 16px; }
 .hero__visual { position: relative; padding: 0 0 0 40px; }
 .hero__glow { position: absolute; width: 760px; height: 760px; right: -220px; top: -160px; border-radius: 50%; background: radial-gradient(closest-side, rgba(244, 182, 63, .22), transparent); pointer-events: none; }
-.hero__sun { position: absolute; z-index: 0; left: -2%; top: -7%; width: 44%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 32% 30%, #fbd889, var(--sun) 55%, #e9a42b); }
 .hero__rings { position: absolute; inset: 0 0 0 40px; z-index: 0; pointer-events: none; }
 .hero__rings i { position: absolute; inset: calc(var(--k) * -26px); border: 1px solid var(--line-2); border-radius: 999px 999px calc(28px + var(--k) * 26px) calc(28px + var(--k) * 26px); }
 .hero__rings i:nth-child(1) { --k: 1; }
@@ -1155,7 +1154,7 @@ html:not(.js) [data-reveal], html:not(.js) [data-hero-in] { opacity: 1; transfor
 
 @media (max-width: 760px) {
   .hero__rings, .hero__inset, .hero__coords { display: none; }
-  .hero__sun { width: 38%; left: -4%; top: -5%; }
+
   .manifesto__text { text-indent: 0; }
   .manifesto__foot { grid-template-columns: 1fr; }
   .expand__stage { border-radius: 24px; }
