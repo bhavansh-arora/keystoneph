@@ -19,7 +19,7 @@
   <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/main.css">
   <script>
-    (function(d){d.classList.add('js');try{if(sessionStorage.getItem('kph_seen'))d.classList.add('no-preloader')}catch(e){}})(document.documentElement);
+    (function(d){d.classList.add('js');try{if(sessionStorage.getItem('kph_seen'))d.classList.add('no-preloader');if(sessionStorage.getItem('kph_nav')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('is-entering');sessionStorage.removeItem('kph_nav')}catch(e){}})(document.documentElement);
   </script>
   <script type="application/ld+json">
   {
@@ -50,6 +50,9 @@
     <div class="preloader__meta"><span>Keystone Power</span><span class="preloader__count">000</span></div>
   </div>
 
+  <div class="curtain" aria-hidden="true"><div class="curtain__mark"><svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 6h36l-8 36H14z" fill="url(#kmg)"/><path d="M24 14.5a7.5 7.5 0 0 1 7.5 7.5h-15a7.5 7.5 0 0 1 7.5-7.5z" fill="#0F2B24"/><path d="M13.2 26h21.6M15 31h18M16.8 36h14.4" stroke="#0F2B24" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+  <div class="progress" aria-hidden="true"><i></i></div>
+
   <div class="topbar">
     <div class="container topbar__inner">
       <p><span class="pulse"></span>Now accepting projects for the next budget cycle &middot; <a href="contact.html">Book a free feasibility review <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
@@ -75,7 +78,7 @@
               <a class="mega__link" href="solutions.html#models"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span><b>Financing models</b><small>PPA, lease, service agreement</small></a>
             </div>
             <a class="mega__card" href="index.html#estimate">
-              <img src="assets/img/sky-array.webp" alt="" width="2000" height="1331" loading="lazy">
+              <img src="assets/img/sky-array.webp" alt="" width="2000" height="1331" loading="lazy" sizes="240px" srcset="assets/img/sky-array-480.webp 480w, assets/img/sky-array-960.webp 960w, assets/img/sky-array-1440.webp 1440w, assets/img/sky-array.webp 2000w" decoding="async">
               <span><small>Savings estimator</small><b>See what solar could save you in 30 seconds</b></span>
             </a>
           </div>
@@ -137,7 +140,7 @@
 
         <div class="hero__visual">
           <figure class="arch hero__arch" data-hero-img>
-            <img src="assets/img/utility-aerial.webp" alt="Aerial view of a utility-scale solar farm" width="1800" height="1200" fetchpriority="high" data-parallax>
+            <img src="assets/img/utility-aerial.webp" alt="Aerial view of a utility-scale solar farm" width="1800" height="1200" fetchpriority="high" data-parallax srcset="assets/img/utility-aerial-480.webp 480w, assets/img/utility-aerial-960.webp 960w, assets/img/utility-aerial-1440.webp 1440w, assets/img/utility-aerial.webp 1800w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async">
           </figure>
 
           <div class="ring" aria-hidden="true">
@@ -153,7 +156,7 @@
           </div>
 
           <a class="float float--case" href="projects.html#crown" data-float>
-            <img src="assets/img/sky-array.webp" alt="" width="2000" height="1331">
+            <img src="assets/img/sky-array.webp" alt="" width="2000" height="1331" sizes="84px" srcset="assets/img/sky-array-480.webp 480w, assets/img/sky-array-960.webp 960w, assets/img/sky-array-1440.webp 1440w, assets/img/sky-array.webp 2000w" decoding="async">
             <div>
               <p class="float__label">Featured &middot; Spartanburg, SC</p>
               <p class="float__title">Largest leased solar array in South Carolina</p>
@@ -199,7 +202,7 @@
 
         <div class="bento">
           <article class="tile tile--photo b-a" data-reveal>
-            <img src="assets/img/installer.webp" alt="Technician installing solar panels" width="2000" height="1333" loading="lazy" data-parallax>
+            <img src="assets/img/installer.webp" alt="Technician installing solar panels" width="2000" height="1333" loading="lazy" data-parallax srcset="assets/img/installer-480.webp 480w, assets/img/installer-960.webp 960w, assets/img/installer-1440.webp 1440w, assets/img/installer.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async">
             <div class="tile__over">
               <p class="tile__kicker">One accountable partner</p>
               <h3>Every stage handled in-house, from first study to final kilowatt-hour.</h3>
@@ -227,7 +230,7 @@
           </article>
 
           <a class="tile tile--photo tile--arch b-d" href="solutions.html#education" data-reveal>
-            <img src="assets/img/campus-dusk.webp" alt="Solar array on a college campus at dusk" width="2000" height="1333" loading="lazy">
+            <img src="assets/img/campus-dusk.webp" alt="Solar array on a college campus at dusk" width="2000" height="1333" loading="lazy" srcset="assets/img/campus-dusk-480.webp 480w, assets/img/campus-dusk-960.webp 960w, assets/img/campus-dusk-1440.webp 1440w, assets/img/campus-dusk.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async">
             <div class="tile__over">
               <p class="tile__kicker">Education</p>
               <h3>1.35 MW across four buildings at Augustana College</h3>
@@ -266,7 +269,7 @@
 
         <div class="panels">
           <div class="panel is-active" role="tabpanel" id="p-mun" aria-labelledby="t-mun">
-            <figure class="arch panel__img"><img src="assets/img/grid-sunset.webp" alt="Transmission towers at sunset" width="2000" height="1333" loading="lazy"></figure>
+            <figure class="arch panel__img"><img src="assets/img/grid-sunset.webp" alt="Transmission towers at sunset" width="2000" height="1333" loading="lazy" srcset="assets/img/grid-sunset-480.webp 480w, assets/img/grid-sunset-960.webp 960w, assets/img/grid-sunset-1440.webp 1440w, assets/img/grid-sunset.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
             <div class="panel__body">
               <h3 class="h3">Lower the cost of running a city.</h3>
               <p>Wastewater plants run around the clock and are among a town's biggest electricity costs. We build on unused city land next to the plant, financed under a long-term PPA, so ratepayers feel the savings.</p>
@@ -276,7 +279,7 @@
             </div>
           </div>
           <div class="panel" role="tabpanel" id="p-edu" aria-labelledby="t-edu" hidden>
-            <figure class="arch panel__img"><img src="assets/img/campus-dusk.webp" alt="Campus solar array at dusk" width="2000" height="1333" loading="lazy"></figure>
+            <figure class="arch panel__img"><img src="assets/img/campus-dusk.webp" alt="Campus solar array at dusk" width="2000" height="1333" loading="lazy" srcset="assets/img/campus-dusk-480.webp 480w, assets/img/campus-dusk-960.webp 960w, assets/img/campus-dusk-1440.webp 1440w, assets/img/campus-dusk.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
             <div class="panel__body">
               <h3 class="h3">Put the savings back in the classroom.</h3>
               <p>Electricity is one of a school's largest operating expenses. Solar lets administrators direct more funding to students and teachers, and gives science classes a working power plant to learn from.</p>
@@ -286,7 +289,7 @@
             </div>
           </div>
           <div class="panel" role="tabpanel" id="p-com" aria-labelledby="t-com" hidden>
-            <figure class="arch panel__img"><img src="assets/img/rooftop-sunset.webp" alt="Commercial rooftop solar at sunset" width="2000" height="1353" loading="lazy"></figure>
+            <figure class="arch panel__img"><img src="assets/img/rooftop-sunset.webp" alt="Commercial rooftop solar at sunset" width="2000" height="1353" loading="lazy" srcset="assets/img/rooftop-sunset-480.webp 480w, assets/img/rooftop-sunset-960.webp 960w, assets/img/rooftop-sunset-1440.webp 1440w, assets/img/rooftop-sunset.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
             <div class="panel__body">
               <h3 class="h3">Hedge energy costs. Keep your capital.</h3>
               <p>Manufacturers, national retailers and mining operations use Keystone to cut a major operating cost without touching capex, while hitting their sustainability targets.</p>
@@ -296,7 +299,7 @@
             </div>
           </div>
           <div class="panel" role="tabpanel" id="p-non" aria-labelledby="t-non" hidden>
-            <figure class="arch panel__img"><img src="assets/img/brick-roof.webp" alt="Solar panels on a brick building roof" width="1800" height="1013" loading="lazy"></figure>
+            <figure class="arch panel__img"><img src="assets/img/brick-roof.webp" alt="Solar panels on a brick building roof" width="1800" height="1013" loading="lazy" srcset="assets/img/brick-roof-480.webp 480w, assets/img/brick-roof-960.webp 960w, assets/img/brick-roof-1440.webp 1440w, assets/img/brick-roof.webp 1800w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
             <div class="panel__body">
               <h3 class="h3">More money for the mission.</h3>
               <p>Smaller, mission-driven organizations often can't use tax credits or get conventional solar financing. Our non-standard financing was built for exactly that.</p>
@@ -306,7 +309,7 @@
             </div>
           </div>
           <div class="panel" role="tabpanel" id="p-utl" aria-labelledby="t-utl" hidden>
-            <figure class="arch panel__img"><img src="assets/img/fields-aerial.webp" alt="Ground-mounted solar across green fields" width="1800" height="1349" loading="lazy"></figure>
+            <figure class="arch panel__img"><img src="assets/img/fields-aerial.webp" alt="Ground-mounted solar across green fields" width="1800" height="1349" loading="lazy" srcset="assets/img/fields-aerial-480.webp 480w, assets/img/fields-aerial-960.webp 960w, assets/img/fields-aerial-1440.webp 1440w, assets/img/fields-aerial.webp 1800w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
             <div class="panel__body">
               <h3 class="h3">Cost-assured energy, or revenue, for 30+ years.</h3>
               <p>We partner with utilities and with public and private landowners across the US to build custom solar facilities under a long-term service agreement.</p>
@@ -395,28 +398,28 @@
         </div>
         <ol class="flow">
           <li class="flow__step" data-reveal>
-            <figure class="arch flow__img"><img src="assets/img/wiring.webp" alt="" width="2000" height="1119" loading="lazy"></figure>
+            <figure class="arch flow__img"><img src="assets/img/wiring.webp" alt="" width="2000" height="1119" loading="lazy" srcset="assets/img/wiring-480.webp 480w, assets/img/wiring-960.webp 960w, assets/img/wiring-1440.webp 1440w, assets/img/wiring.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
             <span class="flow__n">1</span>
             <h3>Free feasibility review</h3>
             <p>Share 12 months of bills and your site. We model size, production, incentives and an indicative rate.</p>
             <p class="flow__chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>No cost, no obligation</p>
           </li>
           <li class="flow__step" data-reveal>
-            <figure class="arch flow__img"><img src="assets/img/panel-texture.webp" alt="" width="2000" height="1333" loading="lazy"></figure>
+            <figure class="arch flow__img"><img src="assets/img/panel-texture.webp" alt="" width="2000" height="1333" loading="lazy" srcset="assets/img/panel-texture-480.webp 480w, assets/img/panel-texture-960.webp 960w, assets/img/panel-texture-1440.webp 1440w, assets/img/panel-texture.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
             <span class="flow__n">2</span>
             <h3>Agreement, not an invoice</h3>
             <p>Choose a PPA, operating lease or service agreement, priced below what you pay the utility today.</p>
             <p class="flow__chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>PPA, lease or service</p>
           </li>
           <li class="flow__step" data-reveal>
-            <figure class="arch flow__img"><img src="assets/img/installer-2.webp" alt="" width="2000" height="1336" loading="lazy"></figure>
+            <figure class="arch flow__img"><img src="assets/img/installer-2.webp" alt="" width="2000" height="1336" loading="lazy" srcset="assets/img/installer-2-480.webp 480w, assets/img/installer-2-960.webp 960w, assets/img/installer-2-1440.webp 1440w, assets/img/installer-2.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
             <span class="flow__n">3</span>
             <h3>Engineer, permit &amp; build</h3>
             <p>We secure interconnection and permits, fund construction and manage the build through KPH Construction Services.</p>
             <p class="flow__chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 12-8.5 8.5a2.1 2.1 0 0 1-3-3L12 9"/><path d="M17.6 15 22 10.6l-6.4-6.4a4 4 0 0 0-5.7 0L9 5l6 6"/></svg>Keystone-funded</p>
           </li>
           <li class="flow__step" data-reveal>
-            <figure class="arch flow__img"><img src="assets/img/symmetry.webp" alt="" width="2000" height="1500" loading="lazy"></figure>
+            <figure class="arch flow__img"><img src="assets/img/symmetry.webp" alt="" width="2000" height="1500" loading="lazy" srcset="assets/img/symmetry-480.webp 480w, assets/img/symmetry-960.webp 960w, assets/img/symmetry-1440.webp 1440w, assets/img/symmetry.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
             <span class="flow__n">4</span>
             <h3>Switch on &amp; save</h3>
             <p>From permission to operate you buy clean power at a discount, while we monitor, maintain and insure the system.</p>
@@ -440,7 +443,7 @@
 
         <div class="work">
           <a class="case case--lead" href="projects.html#crown" data-reveal>
-            <figure class="case__img"><img src="assets/img/sky-array.webp" alt="Ground-mounted solar array under a blue sky" width="2000" height="1331" loading="lazy" data-parallax></figure>
+            <figure class="case__img"><img src="assets/img/sky-array.webp" alt="Ground-mounted solar array under a blue sky" width="2000" height="1331" loading="lazy" data-parallax srcset="assets/img/sky-array-480.webp 480w, assets/img/sky-array-960.webp 960w, assets/img/sky-array-1440.webp 1440w, assets/img/sky-array.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
             <div class="case__body">
               <p class="chips"><span>Manufacturing</span><span>Spartanburg, SC</span><span>Operating lease</span></p>
               <h3>Crown Holdings: the largest leased solar array in South Carolina</h3>
@@ -454,7 +457,7 @@
           </a>
           <div class="work__side">
             <a class="case case--mini" href="projects.html#georgetown" data-reveal>
-              <figure class="case__img"><img src="assets/img/ground-clouds.webp" alt="Solar on open municipal land" width="2000" height="1331" loading="lazy"></figure>
+              <figure class="case__img"><img src="assets/img/ground-clouds.webp" alt="Solar on open municipal land" width="2000" height="1331" loading="lazy" srcset="assets/img/ground-clouds-480.webp 480w, assets/img/ground-clouds-960.webp 960w, assets/img/ground-clouds-1440.webp 1440w, assets/img/ground-clouds.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
               <div class="case__body">
                 <p class="chips"><span>Wastewater</span><span>Illinois</span></p>
                 <h3>Georgetown &amp; Abingdon treatment plants</h3>
@@ -462,7 +465,7 @@
               </div>
             </a>
             <a class="case case--mini" href="projects.html#jcc" data-reveal>
-              <figure class="case__img"><img src="assets/img/array-blue.webp" alt="Rows of solar panels" width="2000" height="1324" loading="lazy"></figure>
+              <figure class="case__img"><img src="assets/img/array-blue.webp" alt="Rows of solar panels" width="2000" height="1324" loading="lazy" srcset="assets/img/array-blue-480.webp 480w, assets/img/array-blue-960.webp 960w, assets/img/array-blue-1440.webp 1440w, assets/img/array-blue.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
               <div class="case__body">
                 <p class="chips"><span>Non-profit</span><span>New Jersey</span></p>
                 <h3>JCC of Central New Jersey</h3>
@@ -580,7 +583,7 @@
         </div>
         <div class="leaders">
           <article class="leader" data-reveal>
-            <figure class="arch leader__portrait"><img src="assets/img/panel-texture.webp" alt="" width="2000" height="1333" loading="lazy"><span class="leader__mono">AF</span></figure>
+            <figure class="arch leader__portrait"><img src="assets/img/panel-texture.webp" alt="" width="2000" height="1333" loading="lazy" sizes="240px" srcset="assets/img/panel-texture-480.webp 480w, assets/img/panel-texture-960.webp 960w, assets/img/panel-texture-1440.webp 1440w, assets/img/panel-texture.webp 2000w" decoding="async"><span class="leader__mono">AF</span></figure>
             <div class="leader__body">
               <p class="leader__role">Co-Founder &middot; Partners, diligence &amp; financing</p>
               <h3 class="leader__name">Anthony C. Fotopoulos</h3>
@@ -591,7 +594,7 @@
           </article>
 
           <article class="leader" data-reveal>
-            <figure class="arch leader__portrait"><img src="assets/img/rows.webp" alt="" width="1800" height="1011" loading="lazy"><span class="leader__mono">WD</span></figure>
+            <figure class="arch leader__portrait"><img src="assets/img/rows.webp" alt="" width="1800" height="1011" loading="lazy" sizes="240px" srcset="assets/img/rows-480.webp 480w, assets/img/rows-960.webp 960w, assets/img/rows-1440.webp 1440w, assets/img/rows.webp 1800w" decoding="async"><span class="leader__mono">WD</span></figure>
             <div class="leader__body">
               <p class="leader__role">Co-Founder &middot; Development, land &amp; acquisitions</p>
               <h3 class="leader__name">William R. DePhillipo</h3>
@@ -651,19 +654,19 @@
         </div>
         <div class="press">
           <a class="post" href="https://www.prnewswire.com/news-releases/keystone-power-holdings-delivers-more-solar-projects-to-municipal-wastewater-sites-in-illinois-301428209.html" target="_blank" rel="noopener" data-reveal>
-            <figure><img src="assets/img/grid-sunset.webp" alt="" width="2000" height="1333" loading="lazy"></figure>
+            <figure><img src="assets/img/grid-sunset.webp" alt="" width="2000" height="1333" loading="lazy" srcset="assets/img/grid-sunset-480.webp 480w, assets/img/grid-sunset-960.webp 960w, assets/img/grid-sunset-1440.webp 1440w, assets/img/grid-sunset.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
             <p class="post__meta"><span>Municipal</span><time>Nov 2021</time></p>
             <h3>More solar for municipal wastewater sites in Illinois</h3>
             <span class="post__go">Read on PR Newswire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
           </a>
           <a class="post" href="https://www.prnewswire.com/news-releases/keystone-power-holdings-focuses-approach-on-education-sector-in-illinois-301395249.html" target="_blank" rel="noopener" data-reveal>
-            <figure><img src="assets/img/campus-dusk.webp" alt="" width="2000" height="1333" loading="lazy"></figure>
+            <figure><img src="assets/img/campus-dusk.webp" alt="" width="2000" height="1333" loading="lazy" srcset="assets/img/campus-dusk-480.webp 480w, assets/img/campus-dusk-960.webp 960w, assets/img/campus-dusk-1440.webp 1440w, assets/img/campus-dusk.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
             <p class="post__meta"><span>Education</span><time>Oct 2021</time></p>
             <h3>Keystone focuses its approach on Illinois education</h3>
             <span class="post__go">Read on PR Newswire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
           </a>
           <a class="post" href="https://www.prnewswire.com/news-releases/keystone-power-holdings-moves-to-expand-into-virginia-maryland-and-maine-301239727.html" target="_blank" rel="noopener" data-reveal>
-            <figure><img src="assets/img/fields-aerial.webp" alt="" width="1800" height="1349" loading="lazy"></figure>
+            <figure><img src="assets/img/fields-aerial.webp" alt="" width="1800" height="1349" loading="lazy" srcset="assets/img/fields-aerial-480.webp 480w, assets/img/fields-aerial-960.webp 960w, assets/img/fields-aerial-1440.webp 1440w, assets/img/fields-aerial.webp 1800w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
             <p class="post__meta"><span>Growth</span><time>Jan 2021</time></p>
             <h3>Expanding into Virginia, Maryland and Maine</h3>
             <span class="post__go">Read on PR Newswire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
@@ -690,7 +693,7 @@
             </div>
           </div>
           <div class="cta__visual">
-            <figure class="arch cta__img"><img src="assets/img/rooftop-sunset.webp" alt="" width="2000" height="1353" loading="lazy"></figure>
+            <figure class="arch cta__img"><img src="assets/img/rooftop-sunset.webp" alt="" width="2000" height="1353" loading="lazy" srcset="assets/img/rooftop-sunset-480.webp 480w, assets/img/rooftop-sunset-960.webp 960w, assets/img/rooftop-sunset-1440.webp 1440w, assets/img/rooftop-sunset.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
             <div class="float float--reply">
               <p class="float__label"><i class="pulse"></i>Average reply</p>
               <p class="float__title">Within one business day</p>

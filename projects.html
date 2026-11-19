@@ -19,7 +19,7 @@
   <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/main.css">
   <script>
-    (function(d){d.classList.add('js');try{if(sessionStorage.getItem('kph_seen'))d.classList.add('no-preloader')}catch(e){}})(document.documentElement);
+    (function(d){d.classList.add('js');try{if(sessionStorage.getItem('kph_seen'))d.classList.add('no-preloader');if(sessionStorage.getItem('kph_nav')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('is-entering');sessionStorage.removeItem('kph_nav')}catch(e){}})(document.documentElement);
   </script>
   <script type="application/ld+json">
   {
@@ -50,6 +50,9 @@
     <div class="preloader__meta"><span>Keystone Power</span><span class="preloader__count">000</span></div>
   </div>
 
+  <div class="curtain" aria-hidden="true"><div class="curtain__mark"><svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 6h36l-8 36H14z" fill="url(#kmg)"/><path d="M24 14.5a7.5 7.5 0 0 1 7.5 7.5h-15a7.5 7.5 0 0 1 7.5-7.5z" fill="#0F2B24"/><path d="M13.2 26h21.6M15 31h18M16.8 36h14.4" stroke="#0F2B24" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+  <div class="progress" aria-hidden="true"><i></i></div>
+
   <div class="topbar">
     <div class="container topbar__inner">
       <p><span class="pulse"></span>Now accepting projects for the next budget cycle &middot; <a href="contact.html">Book a free feasibility review <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
@@ -75,7 +78,7 @@
               <a class="mega__link" href="solutions.html#models"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span><b>Financing models</b><small>PPA, lease, service agreement</small></a>
             </div>
             <a class="mega__card" href="index.html#estimate">
-              <img src="assets/img/sky-array.webp" alt="" width="2000" height="1331" loading="lazy">
+              <img src="assets/img/sky-array.webp" alt="" width="2000" height="1331" loading="lazy" sizes="240px" srcset="assets/img/sky-array-480.webp 480w, assets/img/sky-array-960.webp 960w, assets/img/sky-array-1440.webp 1440w, assets/img/sky-array.webp 2000w" decoding="async">
               <span><small>Savings estimator</small><b>See what solar could save you in 30 seconds</b></span>
             </a>
           </div>
@@ -130,9 +133,9 @@
           </div>
         </div>
         <div class="ph__visual">
-          <figure class="arch ph__img" data-hero-img><img src="assets/img/sky-array.webp" alt="Ground-mounted solar array under a blue sky" width="2000" height="1331" fetchpriority="high" data-parallax></figure>
+          <figure class="arch ph__img" data-hero-img><img src="assets/img/sky-array.webp" alt="Ground-mounted solar array under a blue sky" width="2000" height="1331" fetchpriority="high" data-parallax srcset="assets/img/sky-array-480.webp 480w, assets/img/sky-array-960.webp 960w, assets/img/sky-array-1440.webp 1440w, assets/img/sky-array.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
           <a class="float float--case" href="#crown" data-float>
-            <img src="assets/img/ground-clouds.webp" alt="" width="2000" height="1331">
+            <img src="assets/img/ground-clouds.webp" alt="" width="2000" height="1331" srcset="assets/img/ground-clouds-480.webp 480w, assets/img/ground-clouds-960.webp 960w, assets/img/ground-clouds-1440.webp 1440w, assets/img/ground-clouds.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async">
             <div><p class="float__label">Record &middot; South Carolina</p><p class="float__title">Largest leased solar array in the state</p><p class="float__meta"><b>924.6 kW</b><span>Crown Holdings</span></p></div>
           </a>
         </div>
@@ -302,7 +305,7 @@
         </div>
 
         <article class="study" id="crown" data-reveal>
-          <figure class="study__img"><img src="assets/img/sky-array.webp" alt="Ground-mounted solar array" width="2000" height="1331" loading="lazy" data-parallax><figcaption class="study__badge">01 &middot; Manufacturing</figcaption></figure>
+          <figure class="study__img"><img src="assets/img/sky-array.webp" alt="Ground-mounted solar array" width="2000" height="1331" loading="lazy" data-parallax srcset="assets/img/sky-array-480.webp 480w, assets/img/sky-array-960.webp 960w, assets/img/sky-array-1440.webp 1440w, assets/img/sky-array.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"><figcaption class="study__badge">01 &middot; Manufacturing</figcaption></figure>
           <div class="study__body">
             <p class="chips"><span>Spartanburg, SC</span><span>Operating lease</span><span>Since Oct 2017</span></p>
             <h3>Crown Holdings: largest leased array in South Carolina</h3>
@@ -314,7 +317,7 @@
         </article>
 
         <article class="study study--flip" id="augustana" data-reveal>
-          <figure class="study__img"><img src="assets/img/campus-dusk.webp" alt="Solar on a college campus at dusk" width="2000" height="1333" loading="lazy" data-parallax><figcaption class="study__badge">02 &middot; Education</figcaption></figure>
+          <figure class="study__img"><img src="assets/img/campus-dusk.webp" alt="Solar on a college campus at dusk" width="2000" height="1333" loading="lazy" data-parallax srcset="assets/img/campus-dusk-480.webp 480w, assets/img/campus-dusk-960.webp 960w, assets/img/campus-dusk-1440.webp 1440w, assets/img/campus-dusk.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"><figcaption class="study__badge">02 &middot; Education</figcaption></figure>
           <div class="study__body">
             <p class="chips"><span>Illinois</span><span>Two campuses</span></p>
             <h3>Augustana College &amp; Abingdon-Avon High School</h3>
@@ -326,7 +329,7 @@
         </article>
 
         <article class="study" id="georgetown" data-reveal>
-          <figure class="study__img"><img src="assets/img/ground-clouds.webp" alt="Solar array on open municipal land" width="2000" height="1331" loading="lazy" data-parallax><figcaption class="study__badge">03 &middot; Wastewater</figcaption></figure>
+          <figure class="study__img"><img src="assets/img/ground-clouds.webp" alt="Solar array on open municipal land" width="2000" height="1331" loading="lazy" data-parallax srcset="assets/img/ground-clouds-480.webp 480w, assets/img/ground-clouds-960.webp 960w, assets/img/ground-clouds-1440.webp 1440w, assets/img/ground-clouds.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"><figcaption class="study__badge">03 &middot; Wastewater</figcaption></figure>
           <div class="study__body">
             <p class="chips"><span>Georgetown &amp; Abingdon, IL</span><span>PPA</span></p>
             <h3>Two cities, two treatment plants, zero upfront</h3>
@@ -338,7 +341,7 @@
         </article>
 
         <article class="study study--flip" id="jcc" data-reveal>
-          <figure class="study__img"><img src="assets/img/array-blue.webp" alt="Rows of solar panels" width="2000" height="1324" loading="lazy" data-parallax><figcaption class="study__badge">04 &middot; Non-profit</figcaption></figure>
+          <figure class="study__img"><img src="assets/img/array-blue.webp" alt="Rows of solar panels" width="2000" height="1324" loading="lazy" data-parallax srcset="assets/img/array-blue-480.webp 480w, assets/img/array-blue-960.webp 960w, assets/img/array-blue-1440.webp 1440w, assets/img/array-blue.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"><figcaption class="study__badge">04 &middot; Non-profit</figcaption></figure>
           <div class="study__body">
             <p class="chips"><span>Scotch Plains, NJ</span><span>PPA</span></p>
             <h3>JCC of Central New Jersey</h3>
@@ -451,7 +454,7 @@
             </div>
           </div>
           <div class="cta__visual">
-            <figure class="arch cta__img"><img src="assets/img/rooftop-sunset.webp" alt="" width="2000" height="1353" loading="lazy"></figure>
+            <figure class="arch cta__img"><img src="assets/img/rooftop-sunset.webp" alt="" width="2000" height="1353" loading="lazy" srcset="assets/img/rooftop-sunset-480.webp 480w, assets/img/rooftop-sunset-960.webp 960w, assets/img/rooftop-sunset-1440.webp 1440w, assets/img/rooftop-sunset.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
             <div class="float float--reply">
               <p class="float__label"><i class="pulse"></i>Average reply</p>
               <p class="float__title">Within one business day</p>

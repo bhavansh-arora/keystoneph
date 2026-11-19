@@ -19,7 +19,7 @@
   <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/main.css">
   <script>
-    (function(d){d.classList.add('js');try{if(sessionStorage.getItem('kph_seen'))d.classList.add('no-preloader')}catch(e){}})(document.documentElement);
+    (function(d){d.classList.add('js');try{if(sessionStorage.getItem('kph_seen'))d.classList.add('no-preloader');if(sessionStorage.getItem('kph_nav')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('is-entering');sessionStorage.removeItem('kph_nav')}catch(e){}})(document.documentElement);
   </script>
   <script type="application/ld+json">
   {
@@ -50,6 +50,9 @@
     <div class="preloader__meta"><span>Keystone Power</span><span class="preloader__count">000</span></div>
   </div>
 
+  <div class="curtain" aria-hidden="true"><div class="curtain__mark"><svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 6h36l-8 36H14z" fill="url(#kmg)"/><path d="M24 14.5a7.5 7.5 0 0 1 7.5 7.5h-15a7.5 7.5 0 0 1 7.5-7.5z" fill="#0F2B24"/><path d="M13.2 26h21.6M15 31h18M16.8 36h14.4" stroke="#0F2B24" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+  <div class="progress" aria-hidden="true"><i></i></div>
+
   <div class="topbar">
     <div class="container topbar__inner">
       <p><span class="pulse"></span>Now accepting projects for the next budget cycle &middot; <a href="contact.html">Book a free feasibility review <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
@@ -75,7 +78,7 @@
               <a class="mega__link" href="solutions.html#models"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span><b>Financing models</b><small>PPA, lease, service agreement</small></a>
             </div>
             <a class="mega__card" href="index.html#estimate">
-              <img src="assets/img/sky-array.webp" alt="" width="2000" height="1331" loading="lazy">
+              <img src="assets/img/sky-array.webp" alt="" width="2000" height="1331" loading="lazy" sizes="240px" srcset="assets/img/sky-array-480.webp 480w, assets/img/sky-array-960.webp 960w, assets/img/sky-array-1440.webp 1440w, assets/img/sky-array.webp 2000w" decoding="async">
               <span><small>Savings estimator</small><b>See what solar could save you in 30 seconds</b></span>
             </a>
           </div>

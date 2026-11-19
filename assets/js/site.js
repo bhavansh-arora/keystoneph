@@ -30,7 +30,7 @@
     var pre = $(".preloader");
     if (!pre || doc.classList.contains("no-preloader") || getComputedStyle(pre).display === "none") { ready(); return; }
     var bar = $(".preloader__bar i", pre), count = $(".preloader__count", pre);
-    var start = performance.now(), dur = reduce ? 200 : 1500;
+    var start = performance.now(), dur = reduce ? 200 : 900;
     (function tick(now) {
       var p = Math.min(1, (now - start) / dur);
       var e = 1 - Math.pow(1 - p, 3);
@@ -39,28 +39,65 @@
       if (p < 1) return requestAnimationFrame(tick);
       try { sessionStorage.setItem("kph_seen", "1"); } catch (err) {}
       pre.classList.add("is-done");
-      setTimeout(ready, 280);
+      setTimeout(ready, 120);
     })(start);
   })();
 
-  /* ---------- header + dock ---------- */
+  /* ---------- page transitions ----------
+     A forest curtain covers the page on internal navigation and lifts on
+     arrival, so moving between pages feels like one continuous site. */
+  var curtain = $(".curtain");
+  if (curtain) {
+    if (doc.classList.contains("is-entering")) {
+      requestAnimationFrame(function () { requestAnimationFrame(function () {
+        curtain.classList.add("is-lifting");
+        setTimeout(function () { doc.classList.remove("is-entering"); curtain.classList.remove("is-lifting"); }, 900);
+      }); });
+    }
+    window.addEventListener("pageshow", function (e) {
+      if (e.persisted) { curtain.classList.remove("is-covering"); doc.classList.remove("is-entering"); }
+    });
+    if (!reduce) document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest("a[href]");
+      if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      if ((a.target && a.target !== "_self") || a.hasAttribute("download")) return;
+      var url = new URL(a.href, location.href);
+      if (url.origin !== location.origin || !/(\.html|\/)$/.test(url.pathname)) return;
+      if (url.pathname === location.pathname && url.search === location.search) return; /* same page or hash link */
+      e.preventDefault();
+      try { sessionStorage.setItem("kph_nav", "1"); } catch (err) {}
+      curtain.classList.add("is-covering");
+      setTimeout(function () { location.href = url.href; }, 520);
+    });
+  }
+
+  /* ---------- header + dock (rAF-throttled, no layout reads) ---------- */
   var header = $(".site-header"), dock = $(".dock"), footer = $(".footer");
-  var lastY = window.scrollY;
-  function onScroll() {
+  var lastY = window.scrollY, nearFooter = false, ticking = false;
+  if (dock && footer && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (en) { nearFooter = en[0].isIntersecting; update(); }, { rootMargin: "0px 0px -40px 0px" }).observe(footer);
+  }
+  function update() {
+    ticking = false;
     var y = window.scrollY;
     if (header) {
       header.classList.toggle("is-scrolled", y > 24);
-      header.classList.toggle("is-hidden", y > 320 && y > lastY + 2 && !doc.classList.contains("menu-open"));
-      if (y < lastY - 2) header.classList.remove("is-hidden");
+      if (y > 320 && y > lastY + 2 && !doc.classList.contains("menu-open")) header.classList.add("is-hidden");
+      else if (y < lastY - 2 || y <= 320) header.classList.remove("is-hidden");
     }
-    if (dock && footer) {
-      var nearFooter = footer.getBoundingClientRect().top < window.innerHeight - 40;
-      dock.classList.toggle("is-hidden", nearFooter || y < 200);
-    }
+    if (dock) dock.classList.toggle("is-hidden", nearFooter || y < 200);
     lastY = y;
   }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
+  window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  update();
+
+  /* ---------- pause looping CSS animations while off screen ---------- */
+  if ("IntersectionObserver" in window) {
+    var idle = new IntersectionObserver(function (en) {
+      en.forEach(function (x) { x.target.classList.toggle("is-paused", !x.isIntersecting); });
+    });
+    $$("[data-float], .ring, .pulse").forEach(function (el) { idle.observe(el); });
+  }
 
   /* ---------- menu ---------- */
   var toggle = $(".menu-toggle"), menu = $("#site-menu");
@@ -83,8 +120,10 @@
      output, i.e. ~1.06 kWh every second. */
   var live = $("[data-live-kwh]");
   if (live) {
-    var t0 = performance.now(), perSec = 23900 * 0.16 / 3600;
+    var t0 = performance.now(), perSec = 23900 * 0.16 / 3600, liveOn = true;
+    if ("IntersectionObserver" in window) new IntersectionObserver(function (en) { liveOn = en[0].isIntersecting; }).observe(live);
     setInterval(function () {
+      if (!liveOn) return;
       var v = (performance.now() - t0) / 1000 * perSec;
       live.textContent = v.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
     }, 100);

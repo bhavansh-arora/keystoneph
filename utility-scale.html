@@ -19,7 +19,7 @@
   <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/main.css">
   <script>
-    (function(d){d.classList.add('js');try{if(sessionStorage.getItem('kph_seen'))d.classList.add('no-preloader')}catch(e){}})(document.documentElement);
+    (function(d){d.classList.add('js');try{if(sessionStorage.getItem('kph_seen'))d.classList.add('no-preloader');if(sessionStorage.getItem('kph_nav')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('is-entering');sessionStorage.removeItem('kph_nav')}catch(e){}})(document.documentElement);
   </script>
   <script type="application/ld+json">
   {
@@ -50,6 +50,9 @@
     <div class="preloader__meta"><span>Keystone Power</span><span class="preloader__count">000</span></div>
   </div>
 
+  <div class="curtain" aria-hidden="true"><div class="curtain__mark"><svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 6h36l-8 36H14z" fill="url(#kmg)"/><path d="M24 14.5a7.5 7.5 0 0 1 7.5 7.5h-15a7.5 7.5 0 0 1 7.5-7.5z" fill="#0F2B24"/><path d="M13.2 26h21.6M15 31h18M16.8 36h14.4" stroke="#0F2B24" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+  <div class="progress" aria-hidden="true"><i></i></div>
+
   <div class="topbar">
     <div class="container topbar__inner">
       <p><span class="pulse"></span>Now accepting projects for the next budget cycle &middot; <a href="contact.html">Book a free feasibility review <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
@@ -75,7 +78,7 @@
               <a class="mega__link" href="solutions.html#models"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span><b>Financing models</b><small>PPA, lease, service agreement</small></a>
             </div>
             <a class="mega__card" href="index.html#estimate">
-              <img src="assets/img/sky-array.webp" alt="" width="2000" height="1331" loading="lazy">
+              <img src="assets/img/sky-array.webp" alt="" width="2000" height="1331" loading="lazy" sizes="240px" srcset="assets/img/sky-array-480.webp 480w, assets/img/sky-array-960.webp 960w, assets/img/sky-array-1440.webp 1440w, assets/img/sky-array.webp 2000w" decoding="async">
               <span><small>Savings estimator</small><b>See what solar could save you in 30 seconds</b></span>
             </a>
           </div>
@@ -130,7 +133,7 @@
           </div>
         </div>
         <div class="ph__visual">
-          <figure class="arch ph__img" data-hero-img><img src="assets/img/fields-aerial.webp" alt="Rows of ground-mounted solar across green fields" width="1800" height="1349" fetchpriority="high" data-parallax></figure>
+          <figure class="arch ph__img" data-hero-img><img src="assets/img/fields-aerial.webp" alt="Rows of ground-mounted solar across green fields" width="1800" height="1349" fetchpriority="high" data-parallax srcset="assets/img/fields-aerial-480.webp 480w, assets/img/fields-aerial-960.webp 960w, assets/img/fields-aerial-1440.webp 1440w, assets/img/fields-aerial.webp 1800w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
           <div class="float float--stat" data-float><p class="float__label">Rule of thumb</p><p class="float__num">5–7 acres</p><p class="float__sub">of open land typically supports one megawatt of ground-mount solar</p></div>
         </div>
       </div>
@@ -155,7 +158,7 @@
         </div>
         <div class="duo">
           <a class="duo__card" href="contact.html?type=utility" data-reveal>
-            <img src="assets/img/grid-sunset.webp" alt="" width="2000" height="1333" loading="lazy">
+            <img src="assets/img/grid-sunset.webp" alt="" width="2000" height="1333" loading="lazy" srcset="assets/img/grid-sunset-480.webp 480w, assets/img/grid-sunset-960.webp 960w, assets/img/grid-sunset-1440.webp 1440w, assets/img/grid-sunset.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async">
             <div class="duo__body">
               <p class="chips chips--light"><span>For utilities &amp; co-ops</span></p>
               <h3>Cost-assured energy, built to order.</h3>
@@ -164,7 +167,7 @@
             </div>
           </a>
           <a class="duo__card" href="#land-check" data-reveal>
-            <img src="assets/img/utility-aerial.webp" alt="" width="1800" height="1200" loading="lazy">
+            <img src="assets/img/utility-aerial.webp" alt="" width="1800" height="1200" loading="lazy" srcset="assets/img/utility-aerial-480.webp 480w, assets/img/utility-aerial-960.webp 960w, assets/img/utility-aerial-1440.webp 1440w, assets/img/utility-aerial.webp 1800w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async">
             <div class="duo__body">
               <p class="chips chips--light"><span>For landowners</span></p>
               <h3>Steady revenue from open land.</h3>
@@ -269,10 +272,10 @@
           <p class="head__side">A clear, staged process, so you always know what's next and nothing is committed before it makes sense for you.</p>
         </div>
         <ol class="flow">
-          <li class="flow__step" data-reveal><figure class="arch flow__img"><img src="assets/img/topdown.webp" alt="" width="1800" height="1012" loading="lazy"></figure><span class="flow__n">1</span><h3>Desktop study</h3><p>Parcel boundaries, grid proximity, zoning and environmental constraints, with an honest view of the opportunity.</p><p class="flow__chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Free</p></li>
-          <li class="flow__step" data-reveal><figure class="arch flow__img"><img src="assets/img/fields-aerial.webp" alt="" width="1800" height="1349" loading="lazy"></figure><span class="flow__n">2</span><h3>Option &amp; lease</h3><p>If it's a fit, we agree terms that reserve the land while we develop, with long-term lease terms set out from the start.</p><p class="flow__chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>Clear terms upfront</p></li>
-          <li class="flow__step" data-reveal><figure class="arch flow__img"><img src="assets/img/grid-sunset.webp" alt="" width="2000" height="1333" loading="lazy"></figure><span class="flow__n">3</span><h3>Develop &amp; finance</h3><p>Interconnection, permits, offtake and capital, all carried and paid for by Keystone.</p><p class="flow__chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M15 8.6c-.6-.9-1.7-1.4-3-1.4-1.8 0-3 .9-3 2.3 0 3.3 6 1.8 6 5 0 1.4-1.3 2.4-3 2.4-1.4 0-2.6-.6-3.2-1.6M12 5.5v13"/></svg>Keystone-funded</p></li>
-          <li class="flow__step" data-reveal><figure class="arch flow__img"><img src="assets/img/symmetry.webp" alt="" width="2000" height="1500" loading="lazy"></figure><span class="flow__n">4</span><h3>Build &amp; operate</h3><p>Construction, commissioning and 30+ years of operations, monitoring and maintenance.</p><p class="flow__chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>30+ years</p></li>
+          <li class="flow__step" data-reveal><figure class="arch flow__img"><img src="assets/img/topdown.webp" alt="" width="1800" height="1012" loading="lazy" srcset="assets/img/topdown-480.webp 480w, assets/img/topdown-960.webp 960w, assets/img/topdown-1440.webp 1440w, assets/img/topdown.webp 1800w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure><span class="flow__n">1</span><h3>Desktop study</h3><p>Parcel boundaries, grid proximity, zoning and environmental constraints, with an honest view of the opportunity.</p><p class="flow__chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Free</p></li>
+          <li class="flow__step" data-reveal><figure class="arch flow__img"><img src="assets/img/fields-aerial.webp" alt="" width="1800" height="1349" loading="lazy" srcset="assets/img/fields-aerial-480.webp 480w, assets/img/fields-aerial-960.webp 960w, assets/img/fields-aerial-1440.webp 1440w, assets/img/fields-aerial.webp 1800w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure><span class="flow__n">2</span><h3>Option &amp; lease</h3><p>If it's a fit, we agree terms that reserve the land while we develop, with long-term lease terms set out from the start.</p><p class="flow__chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>Clear terms upfront</p></li>
+          <li class="flow__step" data-reveal><figure class="arch flow__img"><img src="assets/img/grid-sunset.webp" alt="" width="2000" height="1333" loading="lazy" srcset="assets/img/grid-sunset-480.webp 480w, assets/img/grid-sunset-960.webp 960w, assets/img/grid-sunset-1440.webp 1440w, assets/img/grid-sunset.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure><span class="flow__n">3</span><h3>Develop &amp; finance</h3><p>Interconnection, permits, offtake and capital, all carried and paid for by Keystone.</p><p class="flow__chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M15 8.6c-.6-.9-1.7-1.4-3-1.4-1.8 0-3 .9-3 2.3 0 3.3 6 1.8 6 5 0 1.4-1.3 2.4-3 2.4-1.4 0-2.6-.6-3.2-1.6M12 5.5v13"/></svg>Keystone-funded</p></li>
+          <li class="flow__step" data-reveal><figure class="arch flow__img"><img src="assets/img/symmetry.webp" alt="" width="2000" height="1500" loading="lazy" srcset="assets/img/symmetry-480.webp 480w, assets/img/symmetry-960.webp 960w, assets/img/symmetry-1440.webp 1440w, assets/img/symmetry.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure><span class="flow__n">4</span><h3>Build &amp; operate</h3><p>Construction, commissioning and 30+ years of operations, monitoring and maintenance.</p><p class="flow__chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>30+ years</p></li>
         </ol>
       </div>
     </section>
@@ -315,7 +318,7 @@
             </div>
           </div>
           <div class="cta__visual">
-            <figure class="arch cta__img"><img src="assets/img/rooftop-sunset.webp" alt="" width="2000" height="1353" loading="lazy"></figure>
+            <figure class="arch cta__img"><img src="assets/img/rooftop-sunset.webp" alt="" width="2000" height="1353" loading="lazy" srcset="assets/img/rooftop-sunset-480.webp 480w, assets/img/rooftop-sunset-960.webp 960w, assets/img/rooftop-sunset-1440.webp 1440w, assets/img/rooftop-sunset.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"></figure>
             <div class="float float--reply">
               <p class="float__label"><i class="pulse"></i>Average reply</p>
               <p class="float__title">Within one business day</p>

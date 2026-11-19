@@ -90,6 +90,33 @@ def render(text, meta, depth=0):
     return text
 
 
+IMG_WIDTHS = (480, 960, 1440)
+
+
+def responsive_images(html):
+    """Give every photo a srcset of the pre-sized variants (480/960/1440 + original)
+    and async decoding, so phones and laptops never decode a 2000px file they
+    do not need. An img may carry its own sizes="" to override the default."""
+    def fix(m):
+        tag = m.group(0)
+        src = re.search(r'src="assets/img/([\w-]+)\.webp"', tag)
+        if not src or "srcset=" in tag:
+            return tag
+        name = src.group(1)
+        if not (ROOT / "assets/img" / f"{name}-480.webp").exists():
+            return tag
+        full = re.search(r'width="(\d+)"', tag)
+        full_w = full.group(1) if full else "2000"
+        srcset = ", ".join(f"assets/img/{name}-{w}.webp {w}w" for w in IMG_WIDTHS) + f", assets/img/{name}.webp {full_w}w"
+        extra = f' srcset="{srcset}"'
+        if "sizes=" not in tag:
+            extra += ' sizes="(max-width: 760px) 92vw, 48vw"'
+        if "decoding=" not in tag:
+            extra += ' decoding="async"'
+        return tag[:-1].rstrip("/").rstrip() + extra + ">"
+    return re.sub(r"<img\b[^>]*>", fix, html)
+
+
 def build():
     layout = (SRC / "partials" / "layout.html").read_text()
     for page in sorted((SRC / "pages").glob("*.html")):
@@ -104,7 +131,7 @@ def build():
         meta.setdefault("htmlclass", "" if page.name == "index.html" else "no-preloader")
         html = render(layout, meta)
         html = html.replace("{{BODY}}", render(body, meta))
-        (ROOT / page.name).write_text(html)
+        (ROOT / page.name).write_text(responsive_images(html))
         print("built", page.name)
 
 

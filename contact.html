@@ -19,7 +19,7 @@
   <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/main.css">
   <script>
-    (function(d){d.classList.add('js');try{if(sessionStorage.getItem('kph_seen'))d.classList.add('no-preloader')}catch(e){}})(document.documentElement);
+    (function(d){d.classList.add('js');try{if(sessionStorage.getItem('kph_seen'))d.classList.add('no-preloader');if(sessionStorage.getItem('kph_nav')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('is-entering');sessionStorage.removeItem('kph_nav')}catch(e){}})(document.documentElement);
   </script>
   <script type="application/ld+json">
   {
@@ -50,6 +50,9 @@
     <div class="preloader__meta"><span>Keystone Power</span><span class="preloader__count">000</span></div>
   </div>
 
+  <div class="curtain" aria-hidden="true"><div class="curtain__mark"><svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 6h36l-8 36H14z" fill="url(#kmg)"/><path d="M24 14.5a7.5 7.5 0 0 1 7.5 7.5h-15a7.5 7.5 0 0 1 7.5-7.5z" fill="#0F2B24"/><path d="M13.2 26h21.6M15 31h18M16.8 36h14.4" stroke="#0F2B24" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+  <div class="progress" aria-hidden="true"><i></i></div>
+
   <div class="topbar">
     <div class="container topbar__inner">
       <p><span class="pulse"></span>Now accepting projects for the next budget cycle &middot; <a href="contact.html">Book a free feasibility review <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
@@ -75,7 +78,7 @@
               <a class="mega__link" href="solutions.html#models"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span><b>Financing models</b><small>PPA, lease, service agreement</small></a>
             </div>
             <a class="mega__card" href="index.html#estimate">
-              <img src="assets/img/sky-array.webp" alt="" width="2000" height="1331" loading="lazy">
+              <img src="assets/img/sky-array.webp" alt="" width="2000" height="1331" loading="lazy" sizes="240px" srcset="assets/img/sky-array-480.webp 480w, assets/img/sky-array-960.webp 960w, assets/img/sky-array-1440.webp 1440w, assets/img/sky-array.webp 2000w" decoding="async">
               <span><small>Savings estimator</small><b>See what solar could save you in 30 seconds</b></span>
             </a>
           </div>
@@ -344,15 +347,15 @@
         </div>
         <div class="offices">
           <article class="office" data-reveal>
-            <figure class="office__img"><img src="assets/img/rooftop-sunset.webp" alt="" width="2000" height="1353" loading="lazy"><span>HQ</span></figure>
+            <figure class="office__img"><img src="assets/img/rooftop-sunset.webp" alt="" width="2000" height="1353" loading="lazy" srcset="assets/img/rooftop-sunset-480.webp 480w, assets/img/rooftop-sunset-960.webp 960w, assets/img/rooftop-sunset-1440.webp 1440w, assets/img/rooftop-sunset.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"><span>HQ</span></figure>
             <div class="office__body"><h3>Paoli, Pennsylvania</h3><p>12 Paoli Pike, Ste 5<br>Paoli, PA 19301</p><a href="tel:+14843010755"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>+1 484.301.0755</a></div>
           </article>
           <article class="office" data-reveal>
-            <figure class="office__img"><img src="assets/img/ground-clouds.webp" alt="" width="2000" height="1331" loading="lazy"><span>Midwest</span></figure>
+            <figure class="office__img"><img src="assets/img/ground-clouds.webp" alt="" width="2000" height="1331" loading="lazy" srcset="assets/img/ground-clouds-480.webp 480w, assets/img/ground-clouds-960.webp 960w, assets/img/ground-clouds-1440.webp 1440w, assets/img/ground-clouds.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"><span>Midwest</span></figure>
             <div class="office__body"><h3>St. Charles, Illinois</h3><p>100 Illinois St, Ste 200<br>St. Charles, IL 60174</p><a href="tel:+16303381650"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>+1 630.338.1650</a></div>
           </article>
           <article class="office" data-reveal>
-            <figure class="office__img"><img src="assets/img/grid-sunset.webp" alt="" width="2000" height="1333" loading="lazy"><span>Mid-Atlantic</span></figure>
+            <figure class="office__img"><img src="assets/img/grid-sunset.webp" alt="" width="2000" height="1333" loading="lazy" srcset="assets/img/grid-sunset-480.webp 480w, assets/img/grid-sunset-960.webp 960w, assets/img/grid-sunset-1440.webp 1440w, assets/img/grid-sunset.webp 2000w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async"><span>Mid-Atlantic</span></figure>
             <div class="office__body"><h3>Richmond, Virginia</h3><p>7400 Beaufont Springs Dr, Ste 300<br>Richmond, VA 23225</p><a href="tel:+18045212666"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>+1 804.521.2666</a></div>
           </article>
         </div>
