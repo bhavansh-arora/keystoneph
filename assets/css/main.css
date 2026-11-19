@@ -1310,7 +1310,7 @@ html.menu-open { overflow: hidden; }
 .curtain__b { display: grid; grid-template-rows: 1fr auto auto 1fr; justify-items: center; align-items: center; padding: 40px var(--gutter); background: var(--forest); color: var(--on-f); background-image: linear-gradient(var(--line-l) 1px, transparent 1px), linear-gradient(90deg, var(--line-l) 1px, transparent 1px); background-size: 72px 72px; }
 .curtain__mark { align-self: end; margin-bottom: 28px; opacity: 0; transform: translateY(24px) scale(.85); transition: opacity .4s, transform .7s var(--ease); }
 .curtain__mark .brand__mark { width: clamp(72px, 7.5vw, 112px); height: clamp(72px, 7.5vw, 112px); }
-.curtain__title { display: flex; overflow: hidden; padding-bottom: .08em; font-family: var(--display); font-weight: 600; font-size: clamp(3rem, 9vw, 8.5rem); line-height: 1; letter-spacing: -.06em; white-space: pre; }
+.curtain__title { display: flex; max-width: 100%; overflow: hidden; padding: 0 .12em .1em; font-family: var(--display); font-weight: 600; font-size: clamp(2.4rem, 9vw, 8.5rem); line-height: 1; letter-spacing: -.06em; white-space: pre; }
 .curtain__title span { display: inline-block; transform: translateY(115%); }
 .curtain__line { display: block; width: min(260px, 50vw); height: 2px; margin-top: 22px; background: var(--sun); transform: scaleX(0); transform-origin: left; }
 .curtain__k { align-self: start; display: flex; gap: 18px; margin-top: 22px; font-family: var(--mono); font-size: .64rem; letter-spacing: .14em; text-transform: uppercase; color: var(--on-f-dim-2); opacity: 0; transition: opacity .4s; }
