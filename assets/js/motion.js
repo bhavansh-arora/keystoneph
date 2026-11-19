@@ -302,6 +302,11 @@
       gsap.from($$(".flow__n", f), { scale: 0, rotate: -90, duration: .9, stagger: .14, delay: .45, ease: "back.out(2)", scrollTrigger: { trigger: f, start: "top 82%", once: true } });
     });
 
+    /* utility-scale phases: the dot travels the rail as you scroll past */
+    $$(".phases__rail i").forEach(function (dot) {
+      gsap.fromTo(dot, { left: "0%" }, { left: "100%", ease: "none", scrollTrigger: { trigger: dot.closest(".phases"), start: "top 75%", end: "bottom 60%", scrub: true } });
+    });
+
     /* timeline rail draws as you scroll through it */
     $$(".timeline").forEach(function (t) {
       gsap.fromTo(t, { "--tl": 0 }, { "--tl": 1, ease: "none", scrollTrigger: { trigger: t, start: "top 80%", end: "bottom 60%", scrub: true } });
