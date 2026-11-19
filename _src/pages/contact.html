@@ -3,25 +3,32 @@
   "description": "Tell us about your organization and site in four short steps. Your enquiry goes straight to the right Keystone regional office for a free, no-obligation feasibility review.",
   "nav": "contact"
 } -->
-    <section class="ph ph--compact">
-      <div class="hero__grid-bg" aria-hidden="true"></div>
-      <div class="container ph__layout">
-        <div class="ph__copy">
-          <nav class="crumbs" aria-label="Breadcrumb" data-hero-in><a href="index.html">Home</a>{{icon:arrow}}<span>Start a project</span></nav>
-          <h1 class="h-page" data-hero-in>Start a <span class="hl">project.</span></h1>
-          <p class="ph__lede" data-hero-in>Four short steps, about 90 seconds. Your enquiry goes straight to the right regional team, and you'll hear back within one business day with next steps for a free feasibility review.</p>
+    <section class="ph ph--ct">
+      <div class="container">
+        <div class="ct__panel">
+          <div class="ct__copy">
+            <nav class="crumbs crumbs--light" aria-label="Breadcrumb" data-hero-in><a href="index.html">Home</a>{{icon:arrow}}<span>Start a project</span></nav>
+            <h1 class="h-hero ct__h" data-hero-split>Start a <span class="hl">project.</span></h1>
+            <p class="ct__lede" data-hero-in>Four short steps, about 90 seconds. Your enquiry goes straight to the right regional team, and you'll hear back within one business day with next steps for a free feasibility review.</p>
+            <dl class="ct__facts" data-hero-in>
+              <div><dt>90 sec</dt><dd>To complete</dd></div>
+              <div><dt>1 day</dt><dd>Reply time</dd></div>
+              <div><dt>$0</dt><dd>Feasibility review</dd></div>
+            </dl>
+          </div>
+          <div class="ct__lines" data-hero-in>
+            <a class="ct__line" href="#wizard"><small>01 &middot; Online</small><b>Fill in the form</b><span>Below, about 90 seconds {{icon:arrow-down}}</span></a>
+            <a class="ct__line" href="tel:+14843010755"><small>02 &middot; Headquarters</small><b>484.301.0755</b><span>Paoli, PA &middot; weekdays {{icon:phone}}</span></a>
+            <a class="ct__line" href="tel:+16303381650"><small>03 &middot; Midwest</small><b>630.338.1650</b><span>St. Charles, IL {{icon:phone}}</span></a>
+            <p class="ct__reply"><i class="pulse"></i>Average reply: within one business day</p>
+          </div>
         </div>
-        <dl class="ph__facts" data-hero-in>
-          <div><dt>90 sec</dt><dd>To complete</dd></div>
-          <div><dt>1 day</dt><dd>Reply time</dd></div>
-          <div><dt>$0</dt><dd>Feasibility review</dd></div>
-        </dl>
       </div>
     </section>
 
     <section class="sec cream sec--flush-top" aria-label="Project enquiry">
       <div class="container">
-        <div class="wizard">
+        <div class="wizard" id="wizard">
           <aside class="wizard__rail">
             <p class="tag tag--dark"><i></i>Project enquiry</p>
             <ol class="wizard__steps">

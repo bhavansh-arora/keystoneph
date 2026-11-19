@@ -169,18 +169,26 @@
     if (sun) itl.fromTo(sun, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.6, ease: "expo.out" }, .5);
     if (inset) itl.fromTo(inset, { clipPath: "inset(0% 0% 100% 0% round 999px 999px 28px 28px)" }, { clipPath: "inset(0% 0% 0% 0% round 999px 999px 28px 28px)", duration: 1.3, ease: "expo.inOut", clearProps: "clipPath" }, 1);
     if (heroImg.length) {
-      itl.fromTo(heroImg, { clipPath: "inset(0% 0% 100% 0% round 999px 999px 28px 28px)" }, { clipPath: "inset(0% 0% 0% 0% round 999px 999px 28px 28px)", duration: 1.6, ease: "expo.inOut" }, 0);
+      itl.fromTo(heroImg, { clipPath: "inset(0% 0% 100% 0% round 999px 999px 28px 28px)" }, { clipPath: "inset(0% 0% 0% 0% round 999px 999px 28px 28px)", duration: 1.6, ease: "expo.inOut", stagger: { each: .09, from: "center" } }, 0);
       heroImg.forEach(function (w) {
         var img = $("img", w); if (!img) return;
         itl.fromTo(img, { scale: 1.45 }, { scale: gsap.getProperty(img, "scale") || 1.12, duration: 2.2 }, .1);
       });
     }
     if (intro.length) itl.to(intro, { opacity: 1, y: 0, duration: 1.1, stagger: .08 }, .15);
-    itl.add(function () { $$(".ph .hl, .hero .hl:not([data-hero-split] .hl)").forEach(function (h) { h.classList.add("is-on"); }); }, .5);
+    itl.add(function () { $$(".ph .hl:not([data-hero-split] .hl), .hero .hl:not([data-hero-split] .hl)").forEach(function (h) { h.classList.add("is-on"); }); }, .5);
     if ($(".ring")) itl.fromTo(".ring", { scale: 0, rotate: -120, opacity: 0 }, { scale: 1, rotate: 0, opacity: 1, duration: 1.4, ease: "back.out(1.5)" }, .7);
     var floats = $$(".hero [data-float]:not(.hero__inset), .ph [data-float]");
     if (floats.length) itl.fromTo(floats, { opacity: 0, y: 40, scale: .92 }, { opacity: 1, y: 0, scale: 1, duration: 1.1, stagger: .14, ease: "back.out(1.4)", clearProps: "transform" }, .85);
-    $$(".hero .statbar > div, .ph__facts > div").forEach(function (d, i) { countUp(d.querySelector("dt") || d, 1 + i * .1); });
+    $$(".hero .statbar > div, .ph__facts > div, .phw__stats > div, .ab__facts > div, .nm__facts > div, .ct__facts > div").forEach(function (d, i) { countUp(d.querySelector("dt") || d, 1 + (i % 4) * .1); });
+    $$(".pj__num").forEach(function (n) { countUp(n, .6); });
+    var wipe = $$("[data-hero-wipe]");
+    if (wipe.length) {
+      itl.fromTo(wipe, { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.5, ease: "expo.inOut" }, 0);
+      wipe.forEach(function (w) { var im = $("img", w); if (im) itl.fromTo(im, { scale: 1.3 }, { scale: 1, duration: 2.2 }, .1); });
+    }
+    var key = $(".ab__key");
+    if (key) itl.fromTo(key, { yPercent: -160, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 1, ease: "back.out(2)" }, 1.1);
 
     /* hero: floating cards drift on the pointer and at different speeds on scroll */
     [hero, ph].forEach(function (sec) {
@@ -319,8 +327,8 @@
     }
 
     /* ---------- client marquee: speeds up and follows scroll direction ---------- */
-    $$(".clients__track, .bigtype__track").forEach(function (track) {
-      var tw = gsap.to(track, { xPercent: -50, duration: track.classList.contains("bigtype__track") ? 30 : 38, ease: "none", repeat: -1 });
+    $$(".clients__track, .bigtype__track, .film__track").forEach(function (track) {
+      var tw = gsap.to(track, { xPercent: -50, duration: track.classList.contains("film__track") ? 55 : track.classList.contains("bigtype__track") ? 30 : 38, ease: "none", repeat: -1 });
       var dir = 1, hover = false;
       ST.create({
         trigger: track, start: "top bottom", end: "bottom top",
@@ -332,7 +340,7 @@
           gsap.to(tw, { timeScale: dir * boost, duration: .25, overwrite: true, onComplete: function () { if (!hover) gsap.to(tw, { timeScale: dir, duration: 1.4, ease: "power2.out" }); } });
         }
       });
-      var host = track.closest(".clients, .bigtype") || track;
+      var host = track.closest(".clients, .bigtype, .film") || track;
       host.addEventListener("mouseenter", function () { hover = true; gsap.to(tw, { timeScale: 0, duration: .6, overwrite: true }); });
       host.addEventListener("mouseleave", function () { hover = false; gsap.to(tw, { timeScale: dir, duration: .6, overwrite: true }); });
     });
