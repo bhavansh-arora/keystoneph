@@ -215,6 +215,24 @@
     calc();
   });
 
+  /* ---------- project list: hovered or focused row drives the preview panel ---------- */
+  $$("[data-plist]").forEach(function (list) {
+    var rows = $$(".plist__row", list), imgs = $$(".plist__preview img", list);
+    var capN = $("[data-cap-n]", list), capName = $("[data-cap-name]", list), capMeta = $("[data-cap-meta]", list);
+    function show(i) {
+      rows.forEach(function (r, k) { r.classList.toggle("is-active", k === i); });
+      imgs.forEach(function (im, k) { im.classList.toggle("is-on", k === i); });
+      var r = rows[i];
+      if (capN) capN.textContent = $(".plist__n", r).textContent + " / 0" + rows.length;
+      if (capName) capName.textContent = $(".plist__name", r).textContent;
+      if (capMeta) capMeta.textContent = $(".plist__meta", r).textContent + " \u00b7 " + $(".plist__mw", r).textContent.replace("MW", " MW");
+    }
+    rows.forEach(function (r, i) {
+      r.addEventListener("pointerenter", function () { show(i); });
+      r.addEventListener("focus", function () { show(i); });
+    });
+  });
+
   /* ---------- sector tabs ---------- */
   $$("[data-tabs]").forEach(function (root) {
     var tabs = $$("[role=tab]", root), panels = $$("[role=tabpanel]", root);

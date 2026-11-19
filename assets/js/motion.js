@@ -246,27 +246,9 @@
       gsap.from(k, { opacity: 0, duration: 1.2, scrollTrigger: { trigger: k, start: "top 92%", once: true } });
     });
 
-    /* project list: rows rise in; a photo arch follows the cursor */
+    /* project list: rows rise in */
     $$("[data-plist]").forEach(function (list) {
-      gsap.from($$(".plist__row, .plist__more", list), { opacity: 0, y: 40, duration: 1, stagger: .08, scrollTrigger: { trigger: list, start: "top 85%", once: true } });
-      if (!fine) return;
-      var pv = $(".plist__preview", list), im = $("img", pv), first = true, warmed = false;
-      var qx = gsap.quickTo(pv, "x", { duration: .65, ease: "power3.out" }), qy = gsap.quickTo(pv, "y", { duration: .65, ease: "power3.out" });
-      list.addEventListener("pointermove", function (e) {
-        var r = list.getBoundingClientRect(), x = e.clientX - r.left - 140, y = e.clientY - r.top - 170;
-        if (first) { gsap.set(pv, { x: x, y: y }); first = false; }
-        qx(x); qy(y);
-      });
-      list.addEventListener("pointerover", function (e) {
-        var row = e.target.closest(".plist__row");
-        if (!warmed) { warmed = true; $$(".plist__row", list).forEach(function (r) { new Image().src = r.getAttribute("data-img"); }); }
-        list.classList.toggle("is-hover", !!row);
-        if (row && im.getAttribute("src") !== row.getAttribute("data-img")) {
-          im.src = row.getAttribute("data-img");
-          gsap.fromTo(im, { scale: 1.3 }, { scale: 1, duration: .9, overwrite: true });
-        }
-      });
-      list.addEventListener("pointerleave", function () { list.classList.remove("is-hover"); first = true; });
+      gsap.from($$(".plist__row, .plist__more", list), { opacity: 0, y: 34, duration: 1, stagger: .07, scrollTrigger: { trigger: list, start: "top 85%", once: true } });
     });
 
     /* word-by-word highlight on scroll */
