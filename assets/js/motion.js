@@ -16,6 +16,7 @@
 
   if (reduce || !window.gsap || !window.ScrollTrigger) {
     doc.classList.add("motion-off");
+    $$("[data-hero-split]").forEach(function (h) { h.style.visibility = "visible"; });
     $$("[data-count]").forEach(function (el) { el.textContent = el.getAttribute("data-count"); });
     $$(".hl").forEach(function (h) { h.classList.add("is-on"); });
     return;
@@ -158,7 +159,15 @@
 
     /* ---------- page intro ---------- */
     var intro = $$("[data-hero-in]"), heroImg = $$("[data-hero-img]");
-    var itl = gsap.timeline({ delay: doc.classList.contains("is-entering") ? .35 : 0 });
+    var itl = gsap.timeline({ delay: doc.classList.contains("is-entering") ? .7 : 0 });
+    $$("[data-hero-split]").forEach(function (h) {
+      var sp = splitLines(h); h.style.visibility = "visible";
+      itl.fromTo(sp.lines, { yPercent: 110 }, { yPercent: 0, duration: 1.3, stagger: .1, onComplete: function () { sp.revert(); requestAnimationFrame(function () { requestAnimationFrame(function () { $$(".hl", h).forEach(function (x) { x.classList.add("is-on"); }); }); }); } }, .05);
+    });
+    var rings = $$(".hero__rings i"), sun = $(".hero__sun"), inset = $(".hero__inset");
+    if (rings.length) itl.fromTo(rings, { opacity: 0, scale: .92 }, { opacity: function (i) { return [1, .8, .45][i]; }, scale: 1, duration: 1.6, stagger: .12, transformOrigin: "50% 100%" }, .35);
+    if (sun) itl.fromTo(sun, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.6, ease: "expo.out" }, .5);
+    if (inset) itl.fromTo(inset, { clipPath: "inset(0% 0% 100% 0% round 999px 999px 28px 28px)" }, { clipPath: "inset(0% 0% 0% 0% round 999px 999px 28px 28px)", duration: 1.3, ease: "expo.inOut", clearProps: "clipPath" }, 1);
     if (heroImg.length) {
       itl.fromTo(heroImg, { clipPath: "inset(0% 0% 100% 0% round 999px 999px 28px 28px)" }, { clipPath: "inset(0% 0% 0% 0% round 999px 999px 28px 28px)", duration: 1.6, ease: "expo.inOut" }, 0);
       heroImg.forEach(function (w) {
@@ -167,9 +176,9 @@
       });
     }
     if (intro.length) itl.to(intro, { opacity: 1, y: 0, duration: 1.1, stagger: .08 }, .15);
-    itl.add(function () { $$(".hero .hl, .ph .hl").forEach(function (h) { h.classList.add("is-on"); }); }, .5);
+    itl.add(function () { $$(".ph .hl, .hero .hl:not([data-hero-split] .hl)").forEach(function (h) { h.classList.add("is-on"); }); }, .5);
     if ($(".ring")) itl.fromTo(".ring", { scale: 0, rotate: -120, opacity: 0 }, { scale: 1, rotate: 0, opacity: 1, duration: 1.4, ease: "back.out(1.5)" }, .7);
-    var floats = $$(".hero [data-float], .ph [data-float]");
+    var floats = $$(".hero [data-float]:not(.hero__inset), .ph [data-float]");
     if (floats.length) itl.fromTo(floats, { opacity: 0, y: 40, scale: .92 }, { opacity: 1, y: 0, scale: 1, duration: 1.1, stagger: .14, ease: "back.out(1.4)", clearProps: "transform" }, .85);
     $$(".hero .statbar > div, .ph__facts > div").forEach(function (d, i) { countUp(d.querySelector("dt") || d, 1 + i * .1); });
 
@@ -227,7 +236,7 @@
 
     /* ---------- photos: arches unveil from the base, every photo settles from a zoom ---------- */
     $$(".arch:not(.hero__arch):not([data-hero-img])").forEach(function (a) {
-      if (a.closest("[hidden]") || a.closest(".mega")) return;
+      if (a.closest("[hidden]") || a.closest(".mega") || a.closest(".hero")) return;
       var r = getComputedStyle(a).borderBottomLeftRadius || "28px";
       gsap.fromTo(a, { clipPath: "inset(0% 0% 100% 0% round 999px 999px " + r + " " + r + ")" },
         { clipPath: "inset(0% 0% 0% 0% round 999px 999px " + r + " " + r + ")", duration: 1.5, ease: "expo.inOut", clearProps: "clipPath", scrollTrigger: { trigger: a, start: "top 88%", once: true } });

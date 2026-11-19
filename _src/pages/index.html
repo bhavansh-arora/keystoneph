@@ -6,10 +6,11 @@
     <!-- ================= HERO ================= -->
     <section class="hero">
       <div class="hero__grid-bg" aria-hidden="true"></div>
+      <div class="hero__glow" aria-hidden="true"></div>
       <div class="container hero__layout">
         <div class="hero__copy">
           <p class="tag" data-hero-in><i></i>Solar developer &middot; financier &middot; owner</p>
-          <h1 class="h-hero" data-hero-in>Solar that <span class="hl">pays</span> from day one.</h1>
+          <h1 class="h-hero" data-hero-split>Solar that <span class="hl">pays</span> from day one.</h1>
           <p class="hero__lede" data-hero-in>Keystone develops, finances, builds and owns medium to large scale solar for municipalities, schools, non-profits, businesses and utilities. You host it and buy the power for less, with <strong>nothing upfront.</strong></p>
           <div class="btn-row" data-hero-in>
             <a class="btn btn--forest" href="contact.html"><span>Start a project</span><i class="btn__ic">{{icon:arrow-ur}}</i></a>
@@ -22,9 +23,14 @@
         </div>
 
         <div class="hero__visual">
+          <span class="hero__sun" aria-hidden="true"></span>
+          <span class="hero__rings" aria-hidden="true"><i></i><i></i><i></i></span>
           <figure class="arch hero__arch" data-hero-img>
             <img src="assets/img/utility-aerial.webp" alt="Aerial view of a utility-scale solar farm" width="1800" height="1200" fetchpriority="high" data-parallax>
           </figure>
+
+          <figure class="arch hero__inset" data-float aria-hidden="true"><img src="assets/img/installer-2.webp" alt="" width="2000" height="1336" sizes="220px"></figure>
+          <p class="hero__coords" aria-hidden="true"><span>34.95&deg; N</span><span>81.93&deg; W</span><span>Spartanburg, SC</span></p>
 
           <div class="ring" aria-hidden="true">
             <svg viewBox="0 0 140 140"><defs><path id="ring-hero" d="M70,70 m-54,0 a54,54 0 1,1 108,0 a54,54 0 1,1 -108,0"/></defs><text><textPath href="#ring-hero" textLength="336" lengthAdjust="spacing">Develop &#183; Finance &#183; Build &#183; Own &#183;</textPath></text></svg>

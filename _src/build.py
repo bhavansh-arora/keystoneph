@@ -128,7 +128,7 @@ def build():
         meta["canonical"] = SITE_URL + "/" + ("" if page.name == "index.html" else page.name)
         meta.setdefault("og_image", "assets/img/og-image.jpg")
         meta["site_url"] = SITE_URL
-        meta.setdefault("htmlclass", "" if page.name == "index.html" else "no-preloader")
+        meta.setdefault("htmlclass", "")
         html = render(layout, meta)
         html = html.replace("{{BODY}}", render(body, meta))
         (ROOT / page.name).write_text(responsive_images(html))

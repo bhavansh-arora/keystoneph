@@ -29,17 +29,18 @@
   (function preloader() {
     var pre = $(".preloader");
     if (!pre || doc.classList.contains("no-preloader") || getComputedStyle(pre).display === "none") { ready(); return; }
-    var bar = $(".preloader__bar i", pre), count = $(".preloader__count", pre);
-    var start = performance.now(), dur = reduce ? 200 : 900;
+    var bar = $(".preloader__bar i", pre), count = $(".preloader__count span", pre), track = $(".preloader__track", pre);
+    var start = performance.now(), dur = reduce ? 200 : 1500, lastW = -1;
     (function tick(now) {
       var p = Math.min(1, (now - start) / dur);
-      var e = 1 - Math.pow(1 - p, 3);
+      var e = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
       bar.style.transform = "scaleX(" + e + ")";
       count.textContent = String(Math.round(e * 100)).padStart(3, "0");
+      var w = Math.min(3, Math.floor(e * 4));
+      if (w !== lastW && track) { track.style.setProperty("--w", w); lastW = w; }
       if (p < 1) return requestAnimationFrame(tick);
       try { sessionStorage.setItem("kph_seen", "1"); } catch (err) {}
-      pre.classList.add("is-done");
-      setTimeout(ready, 120);
+      setTimeout(function () { pre.classList.add("is-done"); setTimeout(ready, 450); }, 260);
     })(start);
   })();
 
@@ -47,11 +48,15 @@
      A forest curtain covers the page on internal navigation and lifts on
      arrival, so moving between pages feels like one continuous site. */
   var curtain = $(".curtain");
+  function pageName(path) {
+    var f = (path.split("/").pop() || "index.html").replace(".html", "");
+    return { index: "Home", solutions: "Solutions", "utility-scale": "Utility-scale", projects: "Projects", about: "About", news: "News", contact: "Start a project" }[f] || "Keystone";
+  }
   if (curtain) {
     if (doc.classList.contains("is-entering")) {
       requestAnimationFrame(function () { requestAnimationFrame(function () {
         curtain.classList.add("is-lifting");
-        setTimeout(function () { doc.classList.remove("is-entering"); curtain.classList.remove("is-lifting"); }, 900);
+        setTimeout(function () { doc.classList.remove("is-entering"); curtain.classList.remove("is-lifting"); }, 1400);
       }); });
     }
     window.addEventListener("pageshow", function (e) {
@@ -65,9 +70,11 @@
       if (url.origin !== location.origin || !/(\.html|\/)$/.test(url.pathname)) return;
       if (url.pathname === location.pathname && url.search === location.search) return; /* same page or hash link */
       e.preventDefault();
-      try { sessionStorage.setItem("kph_nav", "1"); } catch (err) {}
+      var name = pageName(url.pathname);
+      $(".curtain__title span", curtain).textContent = name;
+      try { sessionStorage.setItem("kph_nav", "1"); sessionStorage.setItem("kph_nav_t", name); } catch (err) {}
       curtain.classList.add("is-covering");
-      setTimeout(function () { location.href = url.href; }, 520);
+      setTimeout(function () { location.href = url.href; }, 780);
     });
   }
 

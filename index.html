@@ -45,12 +45,24 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="preloader" aria-hidden="true">
+    <div class="preloader__top"><span>Keystone Power Holdings</span><span>Medium to large scale solar</span></div>
     <div class="preloader__mark"><svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 6h36l-8 36H14z" fill="url(#kmg)"/><path d="M24 14.5a7.5 7.5 0 0 1 7.5 7.5h-15a7.5 7.5 0 0 1 7.5-7.5z" fill="#0F2B24"/><path d="M13.2 26h21.6M15 31h18M16.8 36h14.4" stroke="#0F2B24" stroke-width="2" stroke-linecap="round"/></svg></div>
+    <div class="preloader__bottom">
+      <p class="preloader__count"><span>000</span><small>%</small></p>
+      <p class="preloader__words"><span class="preloader__track"><span>Develop.</span><span>Finance.</span><span>Build.</span><span><em>Own.</em></span></span></p>
+    </div>
     <div class="preloader__bar"><i></i></div>
-    <div class="preloader__meta"><span>Keystone Power</span><span class="preloader__count">000</span></div>
   </div>
 
-  <div class="curtain" aria-hidden="true"><div class="curtain__mark"><svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 6h36l-8 36H14z" fill="url(#kmg)"/><path d="M24 14.5a7.5 7.5 0 0 1 7.5 7.5h-15a7.5 7.5 0 0 1 7.5-7.5z" fill="#0F2B24"/><path d="M13.2 26h21.6M15 31h18M16.8 36h14.4" stroke="#0F2B24" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+  <div class="curtain" aria-hidden="true">
+    <div class="curtain__a"></div>
+    <div class="curtain__b">
+      <p class="curtain__k">Keystone Power Holdings</p>
+      <p class="curtain__title"><span>Keystone</span></p>
+      <div class="curtain__mark"><svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 6h36l-8 36H14z" fill="url(#kmg)"/><path d="M24 14.5a7.5 7.5 0 0 1 7.5 7.5h-15a7.5 7.5 0 0 1 7.5-7.5z" fill="#0F2B24"/><path d="M13.2 26h21.6M15 31h18M16.8 36h14.4" stroke="#0F2B24" stroke-width="2" stroke-linecap="round"/></svg></div>
+    </div>
+  </div>
+  <script>try{var t=sessionStorage.getItem('kph_nav_t');if(t){document.querySelector('.curtain__title span').textContent=t;sessionStorage.removeItem('kph_nav_t')}}catch(e){}</script>
   <div class="progress" aria-hidden="true"><i></i></div>
 
   <div class="topbar">
@@ -123,10 +135,11 @@
     <!-- ================= HERO ================= -->
     <section class="hero">
       <div class="hero__grid-bg" aria-hidden="true"></div>
+      <div class="hero__glow" aria-hidden="true"></div>
       <div class="container hero__layout">
         <div class="hero__copy">
           <p class="tag" data-hero-in><i></i>Solar developer &middot; financier &middot; owner</p>
-          <h1 class="h-hero" data-hero-in>Solar that <span class="hl">pays</span> from day one.</h1>
+          <h1 class="h-hero" data-hero-split>Solar that <span class="hl">pays</span> from day one.</h1>
           <p class="hero__lede" data-hero-in>Keystone develops, finances, builds and owns medium to large scale solar for municipalities, schools, non-profits, businesses and utilities. You host it and buy the power for less, with <strong>nothing upfront.</strong></p>
           <div class="btn-row" data-hero-in>
             <a class="btn btn--forest" href="contact.html"><span>Start a project</span><i class="btn__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></i></a>
@@ -139,9 +152,14 @@
         </div>
 
         <div class="hero__visual">
+          <span class="hero__sun" aria-hidden="true"></span>
+          <span class="hero__rings" aria-hidden="true"><i></i><i></i><i></i></span>
           <figure class="arch hero__arch" data-hero-img>
             <img src="assets/img/utility-aerial.webp" alt="Aerial view of a utility-scale solar farm" width="1800" height="1200" fetchpriority="high" data-parallax srcset="assets/img/utility-aerial-480.webp 480w, assets/img/utility-aerial-960.webp 960w, assets/img/utility-aerial-1440.webp 1440w, assets/img/utility-aerial.webp 1800w" sizes="(max-width: 760px) 92vw, 48vw" decoding="async">
           </figure>
+
+          <figure class="arch hero__inset" data-float aria-hidden="true"><img src="assets/img/installer-2.webp" alt="" width="2000" height="1336" sizes="220px" srcset="assets/img/installer-2-480.webp 480w, assets/img/installer-2-960.webp 960w, assets/img/installer-2-1440.webp 1440w, assets/img/installer-2.webp 2000w" decoding="async"></figure>
+          <p class="hero__coords" aria-hidden="true"><span>34.95&deg; N</span><span>81.93&deg; W</span><span>Spartanburg, SC</span></p>
 
           <div class="ring" aria-hidden="true">
             <svg viewBox="0 0 140 140"><defs><path id="ring-hero" d="M70,70 m-54,0 a54,54 0 1,1 108,0 a54,54 0 1,1 -108,0"/></defs><text><textPath href="#ring-hero" textLength="336" lengthAdjust="spacing">Develop &#183; Finance &#183; Build &#183; Own &#183;</textPath></text></svg>
