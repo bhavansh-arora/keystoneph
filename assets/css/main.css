@@ -290,10 +290,10 @@ html.menu-open { overflow: hidden; }
 .hero__dots span:nth-child(3) { background: var(--forest); color: var(--sun); }
 .hero__dots span:nth-child(4) { background: var(--sun); }
 .hero__dots svg { width: 16px; height: 16px; }
-.hero__visual { position: relative; padding: 0 0 0 40px; }
+.hero__visual { position: relative; padding: 0 0 0 40px; margin-top: 32px; }
 .hero__glow { position: absolute; width: 760px; height: 760px; right: -220px; top: -160px; border-radius: 50%; background: radial-gradient(closest-side, rgba(244, 182, 63, .22), transparent); pointer-events: none; }
 .hero__rings { position: absolute; inset: 0 0 0 40px; z-index: 0; pointer-events: none; }
-.hero__rings i { position: absolute; inset: calc(var(--k) * -26px); border: 1px solid var(--line-2); border-radius: 999px 999px calc(28px + var(--k) * 26px) calc(28px + var(--k) * 26px); -webkit-mask: linear-gradient(180deg, #000 45%, transparent 78%); mask: linear-gradient(180deg, #000 45%, transparent 78%); }
+.hero__rings i { position: absolute; inset: calc(var(--k) * -18px); border: 1px solid var(--line-2); border-radius: 999px 999px calc(28px + var(--k) * 18px) calc(28px + var(--k) * 18px); -webkit-mask: linear-gradient(180deg, #000 45%, transparent 78%); mask: linear-gradient(180deg, #000 45%, transparent 78%); }
 .hero__rings i:nth-child(1) { --k: 1; }
 .hero__rings i:nth-child(2) { --k: 2; border-style: dashed; opacity: .8; }
 .hero__rings i:nth-child(3) { --k: 3; opacity: .45; }
