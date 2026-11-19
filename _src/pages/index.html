@@ -61,6 +61,21 @@
 
     {{> clients}}
 
+    <!-- ================= MANIFESTO ================= -->
+    <section class="manifesto">
+      <div class="container">
+        <p class="manifesto__k"><span>( Our model )</span><span>Founded by solar veterans with 300+ MW behind them</span></p>
+        <p class="manifesto__text" data-words>We <span class="pill"><img src="assets/img/installer.webp" alt="" width="2000" height="1333" loading="lazy" sizes="160px"></span> develop, finance, build and own solar for the cities, campuses and companies <span class="pill pill--sun">$0</span> that keep communities running, so the only thing you ever sign <span class="pill"><img src="assets/img/rooftop-sunset.webp" alt="" width="2000" height="1353" loading="lazy" sizes="160px"></span> is a <em>lower power bill.</em></p>
+        <div class="manifesto__foot">
+          <div><b>01</b><span>We find the site and model the savings</span></div>
+          <div><b>02</b><span>Our tax-equity fund pays for the build</span></div>
+          <div><b>03</b><span>You buy the power below utility rates</span></div>
+          <a class="btn btn--forest" href="solutions.html#models"><span>How the financing works</span><i class="btn__ic">{{icon:arrow}}</i></a>
+        </div>
+      </div>
+    </section>
+
+
     <!-- ================= WHAT WE DO (bento) ================= -->
     <section class="sec cream">
       <div class="container">
@@ -120,7 +135,25 @@
     </section>
 
     <!-- ================= SECTORS (tabs) ================= -->
-    {{> sectors-tabs}}
+    
+    <!-- ================= CINEMATIC EXPAND ================= -->
+    <section class="expand" aria-label="The Keystone model">
+      <div class="expand__stage">
+        <p class="expand__pre"><span>Your roof</span><span>Our capital</span></p>
+        <div class="expand__media"><img src="assets/img/topdown.webp" alt="Rows of solar panels seen from directly above" width="1800" height="1012" loading="lazy" sizes="100vw"></div>
+        <div class="expand__copy">
+          <p class="expand__k">The Keystone model</p>
+          <h2 class="expand__h"><span>Your roof.</span> <span>Our capital.</span> <span><em>Your savings.</em></span></h2>
+          <ul class="expand__facts">
+            <li><b>$0</b><span>upfront, ever</span></li>
+            <li><b>12&ndash;20%+</b><span>year-one savings reported</span></li>
+            <li><b>30+ yrs</b><span>owned &amp; maintained by us</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    {{> sectors-stack}}
 
     <!-- ================= ESTIMATOR ================= -->
     <section class="sec cream-2" id="estimate">
@@ -184,14 +217,15 @@
           </div>
         </div>
 
-        <div class="ledger" data-reveal>
-          <div class="ledger__head"><span>Featured portfolio</span><span>Sector</span><span>State</span><span>Capacity</span></div>
-          <div class="ledger__row"><span>Private College</span><span>Education</span><span>MA</span><span class="ledger__bar"><i style="--w:100%"></i><b>3.9 MW</b></span></div>
-          <div class="ledger__row"><span>Private College</span><span>Education</span><span>MA</span><span class="ledger__bar"><i style="--w:69%"></i><b>2.7 MW</b></span></div>
-          <div class="ledger__row"><span>Elementary Schools</span><span>Education</span><span>NM</span><span class="ledger__bar"><i style="--w:62%"></i><b>2.4 MW</b></span></div>
-          <div class="ledger__row"><span>High School</span><span>Education</span><span>CA</span><span class="ledger__bar"><i style="--w:62%"></i><b>2.4 MW</b></span></div>
-          <div class="ledger__row"><span>National Retailer</span><span>Commercial</span><span>CT</span><span class="ledger__bar"><i style="--w:51%"></i><b>2.0 MW</b></span></div>
-          <a class="ledger__more" href="projects.html">See all 19 projects &middot; 23.9 MW {{icon:arrow}}</a>
+        <div class="plist" data-plist>
+          <div class="plist__head"><span>Featured portfolio</span><span>Sector &middot; State</span><span>Capacity</span></div>
+          <a class="plist__row" href="projects.html" data-img="assets/img/campus-dusk-960.webp"><span class="plist__n">01</span><span class="plist__name">Private College</span><span class="plist__meta">Education &middot; MA</span><span class="plist__mw">3.9<small>MW</small></span></a>
+          <a class="plist__row" href="projects.html" data-img="assets/img/symmetry-960.webp"><span class="plist__n">02</span><span class="plist__name">Private College</span><span class="plist__meta">Education &middot; MA</span><span class="plist__mw">2.7<small>MW</small></span></a>
+          <a class="plist__row" href="projects.html" data-img="assets/img/rows-960.webp"><span class="plist__n">03</span><span class="plist__name">Elementary Schools</span><span class="plist__meta">Education &middot; NM</span><span class="plist__mw">2.4<small>MW</small></span></a>
+          <a class="plist__row" href="projects.html" data-img="assets/img/topdown-960.webp"><span class="plist__n">04</span><span class="plist__name">High School</span><span class="plist__meta">Education &middot; CA</span><span class="plist__mw">2.4<small>MW</small></span></a>
+          <a class="plist__row" href="projects.html" data-img="assets/img/carport-960.webp"><span class="plist__n">05</span><span class="plist__name">National Retailer</span><span class="plist__meta">Commercial &middot; CT</span><span class="plist__mw">2.0<small>MW</small></span></a>
+          <a class="plist__more" href="projects.html"><span>See all 19 projects</span><span>23.9 MW total {{icon:arrow}}</span></a>
+          <div class="plist__preview" aria-hidden="true"><img alt="" src="assets/img/campus-dusk-960.webp"></div>
         </div>
       </div>
     </section>
