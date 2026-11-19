@@ -46,7 +46,7 @@
 
   /* ---------- helpers ---------- */
   function onEnter(el, fn, start) {
-    ST.create({ trigger: el, start: start || "top 86%", once: true, onEnter: fn });
+    ST.create({ trigger: el, start: start || "top 94%", once: true, onEnter: fn });
   }
   function splitWords(el) {
     var frag = document.createDocumentFragment();
@@ -218,7 +218,7 @@
       var s = splitLines(el);
       gsap.to(s.lines, {
         y: 0, duration: 1.25, stagger: .09,
-        scrollTrigger: { trigger: el, start: "top 88%", once: true },
+        scrollTrigger: { trigger: el, start: "top 95%", once: true },
         onComplete: function () {
           s.revert();
           requestAnimationFrame(function () { requestAnimationFrame(function () { $$(".hl", el).forEach(function (h) { h.classList.add("is-on"); }); }); });
@@ -227,19 +227,19 @@
     });
     $$(".hl").forEach(function (h) {
       if (h.closest(".hero, .ph, [data-split]")) return;
-      onEnter(h, function () { h.classList.add("is-on"); }, "top 85%");
+      onEnter(h, function () { h.classList.add("is-on"); }, "top 94%");
     });
 
     /* eyebrows and side copy */
     $$(".head .tag, .head__side").forEach(function (el) {
-      gsap.from(el, { opacity: 0, x: el.classList.contains("tag") ? -24 : 0, y: el.classList.contains("tag") ? 0 : 24, duration: 1.1, scrollTrigger: { trigger: el, start: "top 90%", once: true } });
+      gsap.from(el, { opacity: 0, x: el.classList.contains("tag") ? -24 : 0, y: el.classList.contains("tag") ? 0 : 24, duration: 1.1, scrollTrigger: { trigger: el, start: "top 95%", once: true } });
     });
 
     /* ---------- cards: staggered rise ---------- */
-    gsap.set("[data-reveal]", { y: 64, scale: .97 });
+    gsap.set("[data-reveal]", { y: 36, scale: .985 });
     ST.batch("[data-reveal]", {
-      start: "top 90%", once: true,
-      onEnter: function (els) { gsap.to(els, { opacity: 1, y: 0, scale: 1, duration: 1.3, stagger: .12, overwrite: true, clearProps: "transform" }); }
+      start: "top 99%", once: true,
+      onEnter: function (els) { gsap.to(els, { opacity: 1, y: 0, scale: 1, duration: 1, stagger: .08, overwrite: true, clearProps: "transform" }); }
     });
 
     /* ---------- photos: arches unveil from the base, every photo settles from a zoom ---------- */
@@ -247,25 +247,25 @@
       if (a.closest("[hidden]") || a.closest(".mega") || a.closest(".hero")) return;
       var r = getComputedStyle(a).borderBottomLeftRadius || "28px";
       gsap.fromTo(a, { clipPath: "inset(0% 0% 100% 0% round 999px 999px " + r + " " + r + ")" },
-        { clipPath: "inset(0% 0% 0% 0% round 999px 999px " + r + " " + r + ")", duration: 1.5, ease: "expo.inOut", clearProps: "clipPath", scrollTrigger: { trigger: a, start: "top 88%", once: true } });
+        { clipPath: "inset(0% 0% 0% 0% round 999px 999px " + r + " " + r + ")", duration: 1.5, ease: "expo.inOut", clearProps: "clipPath", scrollTrigger: { trigger: a, start: "top 95%", once: true } });
     });
     $$(".arch img, .tile--photo > img, .case__img img, .study__img img, .lead-story figure img, .post figure img, .office__img img, .collage img").forEach(function (img) {
       if (img.closest(".hero, .ph, .mega, [hidden], .leader__portrait")) return;
       var base = gsap.getProperty(img, "scale") || 1;
-      gsap.fromTo(img, { scale: base * 1.28 }, { scale: base, duration: 2, scrollTrigger: { trigger: img.parentNode, start: "top 90%", once: true } });
+      gsap.fromTo(img, { scale: base * 1.28 }, { scale: base, duration: 2, scrollTrigger: { trigger: img.parentNode, start: "top 95%", once: true } });
     });
 
     /* manifesto: words light up as you read; footnotes rise */
     $$(".manifesto__foot").forEach(function (f) {
-      gsap.from(f.children, { opacity: 0, y: 26, duration: 1, stagger: .1, scrollTrigger: { trigger: f, start: "top 92%", once: true } });
+      gsap.from(f.children, { opacity: 0, y: 26, duration: 1, stagger: .1, scrollTrigger: { trigger: f, start: "top 95%", once: true } });
     });
     $$(".manifesto__k").forEach(function (k) {
-      gsap.from(k, { opacity: 0, duration: 1.2, scrollTrigger: { trigger: k, start: "top 92%", once: true } });
+      gsap.from(k, { opacity: 0, duration: 1.2, scrollTrigger: { trigger: k, start: "top 95%", once: true } });
     });
 
     /* project list: rows rise in */
     $$("[data-plist]").forEach(function (list) {
-      gsap.from($$(".plist__row, .plist__more", list), { opacity: 0, y: 34, duration: 1, stagger: .07, scrollTrigger: { trigger: list, start: "top 85%", once: true } });
+      gsap.from($$(".plist__row, .plist__more", list), { opacity: 0, y: 34, duration: 1, stagger: .07, scrollTrigger: { trigger: list, start: "top 95%", once: true } });
     });
 
     /* word-by-word highlight on scroll */
@@ -288,18 +288,18 @@
     $$("[data-count]").forEach(function (el) {
       var end = +el.getAttribute("data-count"), o = { v: 0 };
       if (!end) { el.textContent = "0"; return; }
-      gsap.to(o, { v: end, duration: 2, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 90%", once: true }, onUpdate: function () { el.textContent = Math.round(o.v); } });
+      gsap.to(o, { v: end, duration: 2, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 95%", once: true }, onUpdate: function () { el.textContent = Math.round(o.v); } });
     });
     $$(".statbar:not(.hero .statbar) dt, .panel__stats dt, .case__stats dd, .study__stats dd, .tl time, .ptile__mw, .mega-num, .reach__num").forEach(function (el) {
       if (!el.closest("[hidden]")) countUp(el);
     });
 
     /* bars, ledger, map list fill when seen */
-    $$(".bars, .ledger, .reach__list, .ptable").forEach(function (el) { onEnter(el, function () { el.classList.add("is-on"); }, "top 85%"); });
+    $$(".bars, .ledger, .reach__list, .ptable").forEach(function (el) { onEnter(el, function () { el.classList.add("is-on"); }, "top 94%"); });
 
     /* process: step numbers pop in after their cards */
     $$(".flow").forEach(function (f) {
-      gsap.from($$(".flow__n", f), { scale: 0, rotate: -90, duration: .9, stagger: .14, delay: .45, ease: "back.out(2)", scrollTrigger: { trigger: f, start: "top 82%", once: true } });
+      gsap.from($$(".flow__n", f), { scale: 0, rotate: -90, duration: .9, stagger: .14, delay: .45, ease: "back.out(2)", scrollTrigger: { trigger: f, start: "top 95%", once: true } });
     });
 
     /* utility-scale phases: the dot travels the rail as you scroll past */
@@ -315,7 +315,7 @@
     /* check lists tick in */
     $$(".checks").forEach(function (c) {
       if (c.closest("[hidden]")) return;
-      gsap.from($$("li", c), { opacity: 0, x: -16, duration: .8, stagger: .07, scrollTrigger: { trigger: c, start: "top 90%", once: true } });
+      gsap.from($$("li", c), { opacity: 0, x: -16, duration: .8, stagger: .07, scrollTrigger: { trigger: c, start: "top 95%", once: true } });
     });
 
     /* CTA panel grows into place */
