@@ -107,7 +107,7 @@
     toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     if (open) { menu.removeAttribute("inert"); } else { menu.setAttribute("inert", ""); }
     if (window.__lenis) { open ? window.__lenis.stop() : window.__lenis.start(); }
-    document.body.style.overflow = open ? "hidden" : "";
+    /* lock the page on <html>, not <body>: a hidden-overflow body becomes its own scroller and the sticky header (with the close button) drops out of view */
   }
   if (toggle && menu) {
     toggle.addEventListener("click", function () { setMenu(!doc.classList.contains("menu-open")); });
