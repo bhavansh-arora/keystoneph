@@ -113,25 +113,6 @@
   function scenes() {
     var mm = gsap.matchMedia();
 
-    /* cinematic: the arch opens to full screen, then the model reads over it */
-    $$(".expand__stage").forEach(function (ex) {
-      var media = $(".expand__media", ex), img = $("img", media), pre = $$(".expand__pre span", ex);
-      var copy = $$(".expand__k, .expand__h > span, .expand__facts li", ex);
-      var narrow = window.innerWidth < 760;
-      var from = narrow ? "inset(22% 12% 22% 12% round 999px 999px 24px 24px)" : "inset(15% 33% 15% 33% round 999px 999px 28px 28px)";
-      gsap.set(copy, { opacity: 0, y: 70 });
-      var tl = gsap.timeline({ scrollTrigger: { trigger: ex, start: "top top", end: "+=160%", pin: true, scrub: true, anticipatePin: 1 } });
-      tl.fromTo(media, { clipPath: from }, { clipPath: "inset(0% 0% 0% 0% round 0px 0px 0px 0px)", duration: 1, ease: "power2.inOut" }, 0)
-        .fromTo(img, { scale: 1.45 }, { scale: 1, duration: 1, ease: "power2.inOut" }, 0)
-        .fromTo(media, { "--shade": 0 }, { "--shade": 1, duration: .5, ease: "none" }, .45)
-        .to(copy, { opacity: 1, y: 0, duration: .45, stagger: .07, ease: "power3.out" }, .8)
-        .to({}, { duration: .35 });
-      if (pre.length === 2) {
-        tl.to(pre[0], { xPercent: -70, opacity: 0, duration: .6, ease: "power2.in" }, 0)
-          .to(pre[1], { xPercent: 70, opacity: 0, duration: .6, ease: "power2.in" }, 0);
-      }
-    });
-
     /* process: the four steps travel sideways while the section holds (desktop) */
     mm.add("(min-width: 1100px) and (min-height: 700px)", function () {
       var undo = [];
@@ -179,7 +160,7 @@
     var intro = $$("[data-hero-in]"), heroImg = $$("[data-hero-img]");
     var itl = gsap.timeline({ delay: doc.classList.contains("is-entering") ? .35 : 0 });
     if (heroImg.length) {
-      itl.to(heroImg, { clipPath: "inset(0% 0 0 0 round 999px 999px 28px 28px)", duration: 1.6, ease: "expo.inOut" }, 0);
+      itl.fromTo(heroImg, { clipPath: "inset(0% 0% 100% 0% round 999px 999px 28px 28px)" }, { clipPath: "inset(0% 0% 0% 0% round 999px 999px 28px 28px)", duration: 1.6, ease: "expo.inOut" }, 0);
       heroImg.forEach(function (w) {
         var img = $("img", w); if (!img) return;
         itl.fromTo(img, { scale: 1.45 }, { scale: gsap.getProperty(img, "scale") || 1.12, duration: 2.2 }, .1);
@@ -248,7 +229,7 @@
     $$(".arch:not(.hero__arch):not([data-hero-img])").forEach(function (a) {
       if (a.closest("[hidden]") || a.closest(".mega")) return;
       var r = getComputedStyle(a).borderBottomLeftRadius || "28px";
-      gsap.fromTo(a, { clipPath: "inset(100% 0% 0% 0% round 999px 999px " + r + " " + r + ")" },
+      gsap.fromTo(a, { clipPath: "inset(0% 0% 100% 0% round 999px 999px " + r + " " + r + ")" },
         { clipPath: "inset(0% 0% 0% 0% round 999px 999px " + r + " " + r + ")", duration: 1.5, ease: "expo.inOut", clearProps: "clipPath", scrollTrigger: { trigger: a, start: "top 88%", once: true } });
     });
     $$(".arch img, .tile--photo > img, .case__img img, .study__img img, .lead-story figure img, .post figure img, .office__img img, .collage img").forEach(function (img) {

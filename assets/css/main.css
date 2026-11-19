@@ -900,17 +900,15 @@ html:not(.js) .preloader, .no-preloader .preloader { display: none; }
 .manifesto__foot div { display: flex; gap: 14px; align-items: baseline; font-size: .94rem; color: var(--muted); line-height: 1.45; }
 .manifesto__foot b { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.6rem; color: var(--sun-ink); line-height: 1; }
 
-/* ---------- Cinematic expand ---------- */
-.expand { position: relative; background: var(--cream); }
-.expand__stage { position: relative; height: 100vh; height: 100svh; min-height: 620px; overflow: hidden; }
-.expand__pre { position: absolute; inset: 0; z-index: 0; display: flex; justify-content: space-between; align-items: center; padding-inline: var(--gutter); font-family: var(--display); font-weight: 600; font-size: clamp(2rem, 5vw, 5.2rem); letter-spacing: -.05em; color: var(--forest); pointer-events: none; }
-.expand__pre span:last-child { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -.02em; }
-.expand__media { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
-.expand__media img { width: 100%; height: 100%; object-fit: cover; will-change: transform; }
-.expand__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 43, 36, .2) 0%, rgba(15, 43, 36, .35) 40%, rgba(15, 43, 36, .88) 100%); opacity: var(--shade, 1); }
-.expand__copy { position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; margin-inline: auto; width: 100%; max-width: calc(var(--container) + var(--gutter) * 2); padding: 0 var(--gutter) clamp(40px, 6vw, 84px); color: var(--on-f); }
+/* ---------- Model band ---------- */
+.expand { background: var(--cream); padding-bottom: var(--sec); }
+.expand__stage { position: relative; min-height: clamp(520px, 72vh, 720px); display: flex; align-items: flex-end; border-radius: 36px; overflow: hidden; isolation: isolate; background: var(--forest); }
+.expand__media { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
+.expand__media img { position: absolute; inset: -8% 0; width: 100%; height: 116%; object-fit: cover; }
+.expand__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15, 43, 36, .9) 0%, rgba(15, 43, 36, .55) 45%, rgba(15, 43, 36, .1) 100%), linear-gradient(0deg, rgba(15, 43, 36, .6), transparent 50%); }
+.expand__copy { width: 100%; padding: clamp(28px, 4vw, 64px); color: var(--on-f); }
 .expand__k { font-family: var(--mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--sun); margin-bottom: 18px; }
-.expand__h { font-family: var(--display); font-weight: 600; font-size: clamp(2.8rem, 8.2vw, 8.6rem); line-height: .9; letter-spacing: -.06em; }
+.expand__h { font-family: var(--display); font-weight: 600; font-size: clamp(2.6rem, 6.4vw, 6.6rem); line-height: .92; letter-spacing: -.06em; max-width: 12ch; }
 .expand__h > span { display: block; }
 .expand__h em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -.025em; color: var(--sun); }
 .expand__facts { display: flex; flex-wrap: wrap; gap: 14px clamp(28px, 4vw, 64px); margin-top: clamp(24px, 3vw, 40px); padding-top: 22px; border-top: 1px solid var(--line-l-2); }
@@ -1016,7 +1014,7 @@ html:not(.js) .preloader, .no-preloader .preloader { display: none; }
 .motion-off .progress { display: none; }
 .js [data-reveal] { opacity: 0; }
 .js [data-hero-in] { opacity: 0; transform: translateY(18px); }
-.js [data-hero-img] { clip-path: inset(100% 0 0 0 round 999px 999px 28px 28px); }
+.js [data-hero-img] { clip-path: inset(0% 0% 100% 0% round 999px 999px 28px 28px); }
 .js [data-split] .sl { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
 .js [data-split] .sl > span { display: inline-block; transform: translateY(105%); }
 .motion-off [data-reveal], .motion-off [data-hero-in] { opacity: 1 !important; transform: none !important; }
@@ -1111,7 +1109,7 @@ html:not(.js) [data-reveal], html:not(.js) [data-hero-in] { opacity: 1; transfor
 @media (max-width: 760px) {
   .manifesto__text { text-indent: 0; }
   .manifesto__foot { grid-template-columns: 1fr; }
-  .expand__pre { display: none; }
+  .expand__stage { border-radius: 24px; }
   .expand__facts { flex-direction: column; gap: 10px; }
   .stack__k em { display: none; }
   .plist__head, .plist__row { grid-template-columns: 40px 1fr auto; }
