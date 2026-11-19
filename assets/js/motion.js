@@ -295,7 +295,7 @@
     });
 
     /* bars, ledger, map list fill when seen */
-    $$(".bars, .ledger, .reach__list").forEach(function (el) { onEnter(el, function () { el.classList.add("is-on"); }, "top 85%"); });
+    $$(".bars, .ledger, .reach__list, .ptable").forEach(function (el) { onEnter(el, function () { el.classList.add("is-on"); }, "top 85%"); });
 
     /* process: step numbers pop in after their cards */
     $$(".flow").forEach(function (f) {

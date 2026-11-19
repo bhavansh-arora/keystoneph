@@ -317,7 +317,7 @@
 
   /* ---------- project filter & sort ---------- */
   $$("[data-projects]").forEach(function (root) {
-    var grid = $("[data-pgrid]", root), tiles = $$(".ptile", grid);
+    var grid = $("[data-pgrid]", root), tiles = $$(".prow", grid);
     var chips = $$("[data-filter]", root), sortSel = $("[data-sort]", root);
     var sumN = $("[data-sum-n]", root), sumMW = $("[data-sum-mw]", root), sumS = $("[data-sum-s]", root);
     var current = "all";
@@ -338,7 +338,28 @@
       if (sumN) sumN.textContent = shown.length;
       if (sumMW) sumMW.textContent = mw.toFixed(1);
       if (sumS) sumS.textContent = Object.keys(states).length;
-      if (window.gsap && !reduce) window.gsap.fromTo(shown, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: .6, stagger: .03, ease: "power3.out", overwrite: true });
+      /* sector mix + per-state counts for the summary panel */
+      var SEC = [["education", "Education"], ["municipal", "Municipal & water"], ["commercial", "Commercial"], ["nonprofit", "Non-profit"]];
+      var stack = $("[data-sum-stack]", root), legend = $("[data-sum-legend]", root), stl = $("[data-sum-states]", root);
+      if (stack && legend) {
+        stack.innerHTML = ""; legend.innerHTML = "";
+        SEC.forEach(function (sc, k) {
+          var v = shown.filter(function (t) { return t.dataset.cat === sc[0]; }).reduce(function (a, t) { return a + +t.dataset.mw; }, 0);
+          if (!v) return;
+          var seg = document.createElement("i"); seg.className = "s" + k; seg.style.flexGrow = v; stack.appendChild(seg);
+          var li = document.createElement("li"); li.innerHTML = '<i class="s' + k + '"></i><span></span><b></b>';
+          li.children[1].textContent = sc[1]; li.children[2].textContent = v.toFixed(1) + " MW"; legend.appendChild(li);
+        });
+      }
+      if (stl) {
+        var counts = {}; shown.forEach(function (t) { counts[t.dataset.state] = (counts[t.dataset.state] || 0) + 1; });
+        stl.innerHTML = "";
+        Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a] || a.localeCompare(b); }).forEach(function (k) {
+          var li = document.createElement("li"); li.innerHTML = "<b></b><span></span>";
+          li.children[0].textContent = k; li.children[1].textContent = counts[k]; stl.appendChild(li);
+        });
+      }
+      if (window.gsap && !reduce) window.gsap.fromTo(shown, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .5, stagger: .025, ease: "power3.out", overwrite: true });
       if (window.ScrollTrigger) window.ScrollTrigger.refresh();
     }
     chips.forEach(function (c) {

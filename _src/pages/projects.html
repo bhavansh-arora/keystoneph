@@ -45,14 +45,33 @@
             <button type="button" class="fchip" data-filter="nonprofit" aria-pressed="false">Non-profit</button>
           </div>
           <div class="filters__right">
-            <p class="pgrid__sum" aria-live="polite"><span><b data-sum-n>19</b> projects</span><span><b data-sum-mw>23.9</b> MW</span><span><b data-sum-s>7</b> states</span></p>
             <label class="sort"><span class="sr-only">Sort</span>
               <select data-sort><option value="size">Largest first</option><option value="small">Smallest first</option><option value="state">By state</option></select>
             </label>
           </div>
         </div>
-        <div class="pgrid" data-pgrid>
+        <div class="pboard">
+          <div class="ptable">
+            <div class="ptable__head" aria-hidden="true"><span>No.</span><span>Project</span><span>Sector</span><span>State</span><span>Relative size</span><span>Capacity</span></div>
+            <ol class="ptable__rows" data-pgrid>
             {{> ptiles}}
+            </ol>
+          </div>
+          <aside class="psum" aria-live="polite">
+            <p class="psum__k">Portfolio at a glance</p>
+            <p class="psum__big"><b data-sum-mw>23.9</b><small>MW</small></p>
+            <p class="psum__sub"><span><b data-sum-n>19</b> projects</span><span><b data-sum-s>7</b> states</span></p>
+            <div class="psum__mix">
+              <p class="psum__h">Capacity by sector</p>
+              <div class="psum__stack" data-sum-stack></div>
+              <ul class="psum__legend" data-sum-legend></ul>
+            </div>
+            <div class="psum__states">
+              <p class="psum__h">Projects by state</p>
+              <ul class="psum__chips" data-sum-states></ul>
+            </div>
+            <a class="btn btn--sun btn--wide" href="contact.html"><span>Add your site to the list</span><i class="btn__ic">{{icon:arrow-ur}}</i></a>
+          </aside>
         </div>
       </div>
     </section>
